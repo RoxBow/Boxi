@@ -8,28 +8,18 @@ const Schema = mongoose.Schema;
 
 const User = new Schema(
   {
-    username: {
-      type: String,
-      lowercase: true,
-      trim: true,
-      required: [true, "can't be blank"],
-      minlength: [3, 'username too short'],
-      maxlength: [10, 'username too long'],
-      unique: true,
-      admin: Boolean
-    },
-    firstName: {
-      type: String
-    },
-    lastName: {
-      type: String
-    },
     email: {
       type: String,
       required: [true, "can't be blank"],
       match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address'],
       unique: true,
       trim: true
+    },
+    firstName: {
+      type: String
+    },
+    lastName: {
+      type: String
     },
     avatar: { type: Schema.Types.ObjectId, ref: 'Image' },
     favorites: [{ type: String }],

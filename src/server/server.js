@@ -13,6 +13,8 @@ const RateLimit = require('express-rate-limit');
 
 const port = 3001; // set port server
 
+const { urlMongoDB } = require('./database');
+
 /* # MODELS # */
 const User = require('./models/User.js');
 
@@ -22,8 +24,8 @@ const User = require('./models/User.js');
 */
 
 // Complete here with url mongoDB
-// mongoose.connect('');
-// const db = mongoose.connection;
+mongoose.connect(urlMongoDB);
+const db = mongoose.connection;
 
 // security (limit number request)
 const apiLimiter = new RateLimit({
@@ -64,10 +66,10 @@ app.use(
   })
 ); // for parsing application/x-www-form-urlencoded
 
-// db.on('error', console.error.bind(console, 'Error connect database'));
-// db.once('open', () => {
-//   console.log('Connected to database');
-// });
+db.on('error', console.error.bind(console, 'Error connect database'));
+db.once('open', () => {
+  console.log('Connected to database');
+});
 
 // passport config
 passport.use(new LocalStrategy(User.authenticate()));
