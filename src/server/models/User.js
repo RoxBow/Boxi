@@ -36,6 +36,6 @@ const User = new Schema(
   }
 );
 
-User.plugin(passportLocalMongoose);
+User.plugin(passportLocalMongoose, { usernameField: 'email' });
 
 module.exports = mongoose.model('User', User);

@@ -1,0 +1,17 @@
+footer {
+    div:nth-child(2) {
+        text-align: center;
+    }
+
+    div:last-child {
+        text-align: right;
+
+        a {
+            margin-left: 20px;
+
+            i {
+                font-size: 2em;
+            }
+        }
+    }
+}

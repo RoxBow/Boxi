@@ -1,0 +1,36 @@
+.wrapper-newspaper {
+    margin: 20px 0;
+    background-color: lightgray;
+
+    .wrapper-newspaper-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        min-height: 100px;
+
+        h3 {
+            padding-left: 15px;
+            margin: 0;
+        }
+
+        .wrapper-newspaper-description {
+            display: none;
+            padding: 15px;
+            border-top: 1px solid #333333;
+        } // wrapper-newspaper-description
+    } // wrapper-newspaper-body
+
+    .wrapper-newspaper-footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 15px;
+        background-color: #000000;
+
+        .wrapper-newspaper-add-remove, .wrapper-newspaper-see-more {
+            a {
+                color: #ffffff;
+            } // a
+        } // wrapper-newspaper-add-remove /  wrapper-newspaper-see-more
+
+    } // wrapper-newspaper-footer
+} // wrapper-newspaper

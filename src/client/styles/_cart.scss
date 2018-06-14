@@ -1,0 +1,34 @@
+.wrapper-cart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($color: #000, $alpha: 0.6);
+    z-index: 950;
+
+    .wrapper-cart-content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        padding: 20px 30px;
+        z-index: 951;
+        background-color: #ffffff;
+
+        .wrapper-cart-header {
+    
+        } // wrapper-cart-header
+    
+        .wrapper-cart-body {
+    
+        } // wrapper-cart-body
+    
+        .wrapper-cart-footer {
+    
+        }  // wrapper-cart-footer
+    } // wrapper-cart-content
+} // wrapper-cart

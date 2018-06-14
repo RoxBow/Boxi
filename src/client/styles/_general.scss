@@ -4,6 +4,7 @@ html,
 body {
   height: 100%;
   font-family: $mainFont, 'Arial', sans-serif;
+  font-size: 16px;
 }
 
 #root,
@@ -27,4 +28,12 @@ a {
 
 a, button, input[type="submit"] {
   cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
 }

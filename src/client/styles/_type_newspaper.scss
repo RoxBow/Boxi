@@ -1,0 +1,20 @@
+.wrapper-type-newspaper {
+    background-color: lightgray;
+    margin: 15px 0;
+    padding: 30px 15px;
+    text-align: center;
+
+    i, p {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    i {
+        font-size: 2em;
+        margin-right: 20px;
+    }
+
+    p {
+        margin-bottom: 0;
+    }
+}
