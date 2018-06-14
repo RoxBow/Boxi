@@ -1,45 +1,44 @@
 import '../../styles/_form.scss';
 import React from 'react';
-import { Field } from 'redux-form';
 import Input from './Input';
-import { reduxForm } from 'redux-form';
-import { formValueSelector } from 'redux-form'; // ES6
-import { connect } from 'react-redux';
+import { Field, FieldArray, reduxForm } from 'redux-form';
+
+const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
+  <ul>
+    <li>
+      <button type="button" onClick={() => fields.push({})}>
+        Ajouter employé
+      </button>
+      {submitFailed && error && <span>{error}</span>}
+    </li>
+    {fields.map((member, index) => (
+      <li key={index}>
+        <button type="button" title="Remove employe" onClick={() => fields.remove(index)}>
+          Supprimer
+        </button>
+        <h4>Member #{index + 1}</h4>
+
+        <Field name={`${member}.email`} type="text" component={Input} label="Email" />
+      </li>
+    ))}
+  </ul>
+);
 
 class FormCompanyEmployees extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      inputList: []
-    };
-
-    this.addField = this.addField.bind(this);
-  }
-
-  addField() {
-    const { inputList } = this.state;
-    const lengthInputList = inputList.length;
-
-    this.setState({
-      inputList: inputList.concat(
-        <Field name={`email${lengthInputList}`} key={lengthInputList} type="text" component={Input} label="email" />
-      )
-    });
+    this.state = {};
   }
 
   render() {
-    const { signUpEmployees, submitting } = this.props;
+    const { registerEmployees, submitting } = this.props;
 
     return (
-      <form onSubmit={e => e.preventDefault()}>
-        <button onClick={() => this.addField()}>Add new field</button>
+      <form onSubmit={e => registerEmployees(e)}>
+        <FieldArray name="emails" component={renderMembers} />
 
-        {this.state.inputList.map((input, index) => {
-          return input;
-        })}
-
-        <button type="submit" disabled>
+        <button type="submit" disabled={submitting}>
           Valider
         </button>
       </form>
@@ -47,20 +46,4 @@ class FormCompanyEmployees extends React.Component {
   }
 }
 
-const selector = formValueSelector('signupEmployees');
-
-const mapDispatchToProps = dispatch => ({
-  signUpEmployees: () => dispatch(signUpEmployees())
-});
-
-const FormCompanyEmployes = connect(
-  state => {
-    console.log(state);
-    return { }
-  },
-  mapDispatchToProps
-)(FormCompanyEmployees);
-
-export default reduxForm({
-  form: 'signupEmployees'
-})(FormCompanyEmployes);
+export default FormCompanyEmployees;

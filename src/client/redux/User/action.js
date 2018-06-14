@@ -87,3 +87,25 @@ export const setError = errorMessage => {
     errorMessage
   };
 };
+
+export const registerEmployees = emails => {
+  
+
+  console.log('CECI MAILS: ', emails);
+
+  axios
+    .post('/users/createEmployees', {
+      emails
+    })
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+
+    return {
+      type: SET_ERROR,
+      errorMessage: 'test'
+    };
+};

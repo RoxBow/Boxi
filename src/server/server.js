@@ -118,7 +118,16 @@ app.get('/activationAccount/:emailId', (req, res) => {
 });
 
 app.post('/users/createEmployees', (req, res) => {
-  console.log(req);
+  const { emails } = req.body;
+
+  emails.forEach( ({ email }) => {
+      const user = new User({ email: email });
+      console.log('EMAIL: ', email);
+      user.save( err => {
+        if (err) { throw err; }
+        console.log('User created');
+      });
+  });
 });
 
 // Execute at the end

@@ -1,14 +1,7 @@
 import './styles/_reset.scss';
 import './styles/_general.scss';
-import './styles/_variables.scss';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import React from 'react';
-import FormCompanyEmployees from './components/Form/FormCompanyEmployees';
-import Header from './components/Header/Header';
-import Banner from './components/Banner/Banner';
-import QuickActions from './components/QuickActions/QuickActions';
-import Cart from './components/Cart/Cart';
-import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
 
 class App extends React.Component {
@@ -20,7 +13,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Home />
+            <Home />
         </div>
       </Router>
     );
