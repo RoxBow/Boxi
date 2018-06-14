@@ -22,8 +22,11 @@ const User = new Schema(
       type: String
     },
     avatar: { type: Schema.Types.ObjectId, ref: 'Image' },
-    favorites: [{ type: String }],
-    recipesDone: [{ type: String }]
+    emailId: String,
+    isVerified: {
+      type: Boolean,
+      default: false
+    }
   },
   {
     timestamps: {
