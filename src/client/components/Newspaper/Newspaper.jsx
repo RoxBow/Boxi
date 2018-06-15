@@ -23,10 +23,10 @@ class Newspaper extends React.Component {
         </div>
         <div className="wrapper-newspaper-footer">
             <div className="wrapper-newspaper-add-remove">
-                <a href="#"><span class="icon-add-remove"></span>Ajouter</a>
+                <a href="#"><span className="icon-add-remove"></span>Ajouter</a>
             </div>
             <div className="wrapper-newspaper-see-more">
-                <a href="#">Voir plus<span class="icon-see-more"></span></a>
+                <a href="#">Voir plus<span className="icon-see-more"></span></a>
             </div>
         </div>
       </div>
