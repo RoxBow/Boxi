@@ -1,5 +1,4 @@
 import axios from 'axios';
-
 export const SET_MESSAGE_INFO = 'SET_MESSAGE_INFO';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';

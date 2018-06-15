@@ -1,8 +1,8 @@
-import '../../styles/_form.scss';
+import '../../../styles/_form.scss';
 import React from 'react';
-import Input from './Input';
-import { Field, FieldArray } from 'redux-form';
 import axios from 'axios';
+import Input from '../Input';
+import { Field, FieldArray } from 'redux-form';
 
 const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
   <ul>

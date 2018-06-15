@@ -1,7 +1,7 @@
-import '../../styles/_form.scss';
+import '../../../styles/_form.scss';
 import React from 'react';
 import { Field } from 'redux-form';
-import Input from './Input';
+import Input from '../Input';
 
 const FormLogin = ({ login, submitting }) => (
   <form onSubmit={login}>

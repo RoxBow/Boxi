@@ -1,6 +1,6 @@
 import { reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
-import { requestSignUp } from '../../redux/User/action';
+import { requestSignUp } from '../../../redux/User/action';
 import FormSignUp from './FormSignup';
 
 const selectorForm = formValueSelector('signUp');

@@ -12,12 +12,12 @@ const RateLimit = require('express-rate-limit');
 const nodemailer = require('nodemailer');
 const Email = require('email-templates');
 
-const port = 3001; // set port server
-
 const { urlMongoDB } = require('./database');
-const { baseUrl } = require('./constants');
+const { userMail, passwordMail, host } = require('./accountMail');
+const { port, baseUrl } = require('./constants');
+
+/* # HELPERS # */
 const { generateId } = require('./helpers/generateRandomId');
-const { userMail, passwordMail } = require('./accountMail');
 
 /* # MODELS # */
 const User = require('./models/User.js');
@@ -28,7 +28,6 @@ const Service = require('./models/Service.js');
   res.header("Access-Control-Allow-Origin", "*");
 */
 
-// Complete here with url mongoDB
 mongoose.connect(urlMongoDB);
 const db = mongoose.connection;
 
@@ -40,7 +39,7 @@ const apiLimiter = new RateLimit({
 });
 
 const smtpTransport = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
+  host,
   auth: {
     user: userMail,
     pass: passwordMail
@@ -50,7 +49,7 @@ const smtpTransport = nodemailer.createTransport({
 const mailOptions = {
   from: `Boxi <${userMail}>`, // sender address
   to: 'vincent.deplais@orange.fr', // list of receivers
-  subject: 'Test' // Subject line
+  subject: 'Activation compte' // Subject line
 };
 
 const sendEmail = new Email({
@@ -109,14 +108,17 @@ db.once('open', () => {
   console.log('Connected to database');
 });
 
-// passport config
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+/* ### USER ### */
+
 // Active account when user click in active mail
 app.get('/user/getEmailSignup', (req, res) => {
-  User.findOne({ emailId: req.query.emailId }, (err, user) => {
+  const { emailId } = req.query.emailId;
+
+  User.findOne({ emailId }, (err, user) => {
     if (err) return err;
     res.send({ email: user.email });
   });
@@ -178,6 +180,65 @@ app.post('/user/login', (req, res, next) => {
       return res.send({ success: true, message: 'authentication succeeded' });
     });
   })(req, res, next);
+});
+
+/* ### SERVICE ### */
+
+app.get('/service/getListService', (req, res) => {
+  const listService = [
+    {
+      name: 'Journaux',
+      path: 'newspaper'
+    },
+    {
+      name: 'Fruits',
+      path: 'fruit'
+    },
+    {
+      name: 'Colis',
+      path: 'parcel'
+    }
+  ];
+
+  res.send({ listService });
+});
+
+app.get('/service/getListCategory', (req, res) => {
+  const { typeService } = req.query;
+  let listCategory = [];
+
+  switch (typeService) {
+    case 'newspaper':
+      listCategory = [
+        {
+          name: 'Sport',
+          path: 'sport'
+        },
+        {
+          name: 'Cuisine',
+          path: 'cooking'
+        },
+        {
+          name: 'Voiture',
+          path: 'car'
+        }
+      ];
+      break;
+
+    default:
+      break;
+  }
+
+  res.send({ listCategory });
+});
+
+app.get('/service/getResultService', (req, res) => {
+  const { typeService, categoryService } = req.query;
+
+  Service.find({ type: typeService, category: categoryService }, (err, services) => {
+    if (err) return err;
+    res.send({ products: services });
+  });
 });
 
 // Execute at the end

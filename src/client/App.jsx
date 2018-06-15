@@ -2,6 +2,8 @@ import './styles/_reset.scss';
 import './styles/_general.scss';
 import { BrowserRouter as Router } from 'react-router-dom';
 import React from 'react';
+import FormCompanyEmployees from './components/Form/FormCompanyEmployeesContainer';
+import FormSignup from './components/Form/FormSignupContainer';
 import Home from './components/Home/Home';
 
 class App extends React.Component {

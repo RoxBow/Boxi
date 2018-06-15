@@ -4,21 +4,19 @@ import React from 'react';
 import { Row, Col, Icon } from 'antd';
 
 class Product extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {};
+  constructor(props) {
+    super(props);
   }
 
   render() {
-    const { } = this.state;
+      const { title, description, price } = this.props;
 
-    return (
+      return (
       <div className="wrapper-product">
         <div className="wrapper-product-body">
-            <h3>{this.props.name} - {this.props.price}</h3>
+            <h3>{title} - {price}</h3>
             <div className="wrapper-product-description">
-                <p>{this.props.description}</p>
+                <p>{description}</p>
             </div>
         </div>
         <div className="wrapper-product-footer">

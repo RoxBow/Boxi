@@ -1,6 +1,6 @@
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { requestLogin } from '../../redux/User/action';
+import { requestLogin } from '../../../redux/User/action';
 import FormLogin from './FormLogin';
 
 const mapDispatchToProps = dispatch => ({

@@ -1,4 +1,3 @@
-import '../../styles/_userProfile.scss';
 import React from 'react';
 import axios from 'axios';
 class UserProfile extends React.Component {
