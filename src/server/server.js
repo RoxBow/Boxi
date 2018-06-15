@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
-const axios = require('axios');
 const cors = require('cors');
 const helmet = require('helmet');
 const session = require('express-session');
@@ -17,9 +16,12 @@ const port = 3001; // set port server
 
 const { urlMongoDB } = require('./database');
 const { baseUrl } = require('./constants');
+const { generateId } = require('./helpers/generateRandomId');
+const { userMail, passwordMail } = require('./accountMail');
 
 /* # MODELS # */
 const User = require('./models/User.js');
+const Service = require('./models/Service.js');
 
 /*
   Add this line before express' response to set CORS header:
@@ -40,22 +42,22 @@ const apiLimiter = new RateLimit({
 const smtpTransport = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   auth: {
-    user: 'bonjour.boxi@gmail.com',
-    pass: 'Boxiproject2018'
+    user: userMail,
+    pass: passwordMail
   }
 });
 
 const mailOptions = {
-  from: 'Boxi <bonjour.boxi@gmail.com>', // sender address
+  from: `Boxi <${userMail}>`, // sender address
   to: 'vincent.deplais@orange.fr', // list of receivers
   subject: 'Test' // Subject line
 };
 
-const email = new Email({
+const sendEmail = new Email({
   message: mailOptions,
   transport: smtpTransport,
   send: false,
-  preview: false,
+  preview: true,
   views: {
     root: __dirname + '/emails',
     options: {
@@ -113,21 +115,69 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 // Active account when user click in active mail
-app.get('/activationAccount/:emailId', (req, res) => {
-  console.log('Email id: ', req.params.emailId);
+app.get('/user/getEmailSignup', (req, res) => {
+  User.findOne({ emailId: req.query.emailId }, (err, user) => {
+    if (err) return err;
+    res.send({ email: user.email });
+  });
 });
 
 app.post('/users/createEmployees', (req, res) => {
   const { emails } = req.body;
 
-  emails.forEach( ({ email }) => {
-      const user = new User({ email: email });
-      console.log('EMAIL: ', email);
-      user.save( err => {
-        if (err) { throw err; }
-        console.log('User created');
-      });
+  // get all emails sends
+  emails.forEach(({ email }) => {
+    // create user only with emails to begin
+    const emailId = generateId();
+    const user = new User({ email, emailId });
+
+    // send mail to employees
+    sendEmail.send({
+      template: 'example',
+      locals: { url: `${baseUrl}/activationAccount/${emailId}` }
+    });
+
+    // save user each time
+    user.save(err => {
+      if (err) {
+        throw err;
+      }
+      console.log('User created');
+    });
   });
+});
+
+app.post('/user/signup', (req, res) => {
+  const { email, password } = req.body;
+
+  User.findOne({ email: email }, (err, user) => {
+    if (err) return err;
+
+    user.setPassword(password, () => {
+      // user validate his account
+      user.isVerified = true;
+
+      user.save(err => {
+        if (err) throw err;
+        const messageInfo = "You correctly sign up, let's login";
+        res.status(200).send({ messageInfo });
+      });
+    });
+
+    return;
+  });
+});
+
+app.post('/user/login', (req, res, next) => {
+  passport.authenticate('local', (err, user, info) => {
+    if (err) return res.status(500).send({ err });
+    if (!user) return res.status(401).send({ message: 'User or password is incorrect' });
+
+    req.login(user, err => {
+      if (err) return res.status(500).send({ err });
+      return res.send({ success: true, message: 'authentication succeeded' });
+    });
+  })(req, res, next);
 });
 
 // Execute at the end
@@ -137,9 +187,4 @@ app.get('/*', (req, res) => {
 
 app.listen(process.env.PORT || port, () => {
   console.log(`Serveur running on ${port}`);
-});
-
-email.send({
-  template: 'example',
-  locals: { url: `${baseUrl}/activationAccount/<0947e266-00e1-bfb9-8082-fae591ce3d7e@gmail.com>` }
 });

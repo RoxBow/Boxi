@@ -1,4 +1,4 @@
-import { SIGN_UP, LOGIN, SET_AUTHENTICATION, LOGOUT, SET_ERROR } from './action';
+import { SET_MESSAGE_INFO, LOGIN, SET_AUTHENTICATION, LOGOUT, SET_ERROR } from './action';
 
 const initialState = {
   isAuthenticated: false,
@@ -7,11 +7,10 @@ const initialState = {
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SIGN_UP:
+    case SET_MESSAGE_INFO:
       return {
         ...state,
-        isAuthenticated: true,
-        isLoading: false
+        messageInfo: action.messageInfo
       };
     case LOGIN:
       return {

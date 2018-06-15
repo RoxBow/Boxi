@@ -1,26 +1,24 @@
 import axios from 'axios';
 
-export const SIGN_UP = 'SIGN_UP';
+export const SET_MESSAGE_INFO = 'SET_MESSAGE_INFO';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const SET_AUTHENTICATION = 'SET_AUTHENTICATION';
 export const SET_ERROR = 'SET_ERROR';
 
-export const requestSignUp = e => {
-  e.preventDefault();
-
-  const password = e.target.password.value;
+export const requestSignUp = (email, password) => {
 
   return dispatch => {
     axios
       .post('/user/signup', {
-        email
+        email,
+        password
       })
       .then(res => {
         if (res.data.err) {
           dispatch(setError(res.data.err.message));
         } else {
-          dispatch(signUp());
+          dispatch(setMessageInfo(res.data.messageInfo));
         }
       })
       .catch(err => {
@@ -38,7 +36,7 @@ export const requestLogin = e => {
   return dispatch => {
     axios
       .post('/user/login', {
-        email,
+        username: email,
         password
       })
       .then(res => {
@@ -52,9 +50,11 @@ export const requestLogin = e => {
   };
 };
 
-export const signUp = e => {
+export const setMessageInfo = messageInfo => {
+
   return {
-    type: SIGN_UP
+    type: SET_MESSAGE_INFO,
+    messageInfo
   };
 };
 
@@ -86,26 +86,4 @@ export const setError = errorMessage => {
     type: SET_ERROR,
     errorMessage
   };
-};
-
-export const registerEmployees = emails => {
-  
-
-  console.log('CECI MAILS: ', emails);
-
-  axios
-    .post('/users/createEmployees', {
-      emails
-    })
-    .then(response => {
-      console.log(response);
-    })
-    .catch(error => {
-      console.log(error);
-    });
-
-    return {
-      type: SET_ERROR,
-      errorMessage: 'test'
-    };
 };

@@ -1,22 +1,36 @@
-import React from 'react';
-import { reduxForm } from 'redux-form';
+import { reduxForm, formValueSelector } from 'redux-form';
 import { connect } from 'react-redux';
 import { requestSignUp } from '../../redux/User/action';
-import validateForm from '../../helpers/validateForm';
 import FormSignUp from './FormSignup';
 
+const selectorForm = formValueSelector('signUp');
+
+const mapStateToProps = state => ({
+  email: selectorForm(state, 'email'),
+  password: selectorForm(state, 'password'),
+});
+
 const mapDispatchToProps = dispatch => ({
+  signUp: (email, password) => {
+    dispatch(requestSignUp(email, password));
+  },
+});
+
+const mergeProps = (stateProps, dispatchProps, ownProps) => ({
+  ...stateProps,
+  ...ownProps,
   signUp: e => {
-    dispatch(requestSignUp(e));
-  }
+    e.preventDefault();
+    dispatchProps.signUp(stateProps.email, stateProps.password);
+  },
 });
 
 const FormSignupConnect = connect(
-  null,
-  mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps,
+  mergeProps
 )(FormSignUp);
 
 export default reduxForm({
-  form: 'signUp',
-  validateForm
+  form: 'signUp'
 })(FormSignupConnect);

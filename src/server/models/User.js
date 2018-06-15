@@ -1,8 +1,6 @@
 'use strict';
 
 const mongoose = require('mongoose');
-const Image = require('./Image');
-const passport = require('passport');
 const passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
 
@@ -36,6 +34,6 @@ const User = new Schema(
   }
 );
 
-User.plugin(passportLocalMongoose, { usernameField: 'email' });
+User.plugin(passportLocalMongoose, { usernameField: 'email', usernameQueryFields: ['email'] });
 
 module.exports = mongoose.model('User', User);

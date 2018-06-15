@@ -1,7 +1,8 @@
 import '../../styles/_form.scss';
 import React from 'react';
 import Input from './Input';
-import { Field, FieldArray, reduxForm } from 'redux-form';
+import { Field, FieldArray } from 'redux-form';
+import axios from 'axios';
 
 const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
   <ul>
@@ -29,15 +30,29 @@ class FormCompanyEmployees extends React.Component {
     super(props);
 
     this.state = {};
+
+    this.registerEmployees = this.registerEmployees.bind(this);
+  }
+
+  registerEmployees(e) {
+    e.preventDefault();
+    const { emails } = this.props;
+
+    axios
+      .post('/users/createEmployees', {
+        emails
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   render() {
-    const { registerEmployees, submitting } = this.props;
+    const { submitting } = this.props;
 
     return (
-      <form onSubmit={e => registerEmployees(e)}>
+      <form onSubmit={this.registerEmployees}>
         <FieldArray name="emails" component={renderMembers} />
-
         <button type="submit" disabled={submitting}>
           Valider
         </button>

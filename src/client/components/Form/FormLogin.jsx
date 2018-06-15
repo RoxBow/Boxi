@@ -5,7 +5,7 @@ import Input from './Input';
 
 const FormLogin = ({ login, submitting }) => (
   <form onSubmit={login}>
-    <Field name="email" type="text" component={Input} label="email" />
+    <Field name="email" type="email" component={Input} label="Email" />
     <Field name="password" type="password" component={Input} label="Password" />
     <button type="submit" disabled={submitting}>
       Connecter
