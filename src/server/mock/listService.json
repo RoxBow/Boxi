@@ -1,0 +1,16 @@
+{
+  "services": [
+    {
+      "name": "Journaux",
+      "path": "newspaper"
+    },
+    {
+      "name": "Fruits",
+      "path": "fruit"
+    },
+    {
+      "name": "Colis",
+      "path": "parcel"
+    }
+  ]
+}

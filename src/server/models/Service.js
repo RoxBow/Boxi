@@ -24,7 +24,8 @@ const Service = new Schema(
       required: true
     },
     price: Number,
-    description: String
+    description: String,
+    productId: String
   },
   {
     timestamps: {

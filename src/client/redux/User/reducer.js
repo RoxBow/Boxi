@@ -2,7 +2,8 @@ import { SET_MESSAGE_INFO, LOGIN, SET_AUTHENTICATION, LOGOUT, SET_ERROR } from '
 
 const initialState = {
   isAuthenticated: false,
-  isLoading: true
+  isLoading: true,
+  error: ''
 };
 
 const userReducer = (state = initialState, action) => {

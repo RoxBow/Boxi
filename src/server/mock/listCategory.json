@@ -1,0 +1,18 @@
+{
+  "categories": {
+    "newspaper": [
+      {
+        "name": "Sport",
+        "path": "sport"
+      },
+      {
+        "name": "Cuisine",
+        "path": "cooking"
+      },
+      {
+        "name": "Voiture",
+        "path": "car"
+      }
+    ]
+  }
+}

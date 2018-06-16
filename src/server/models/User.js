@@ -21,6 +21,8 @@ const User = new Schema(
     },
     avatar: { type: Schema.Types.ObjectId, ref: 'Image' },
     emailId: String,
+    company: String,
+    services: [{ type: Schema.Types.ObjectId, ref: 'Service' }],
     isVerified: {
       type: Boolean,
       default: false

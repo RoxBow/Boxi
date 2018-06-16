@@ -9,53 +9,81 @@ class Products extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            products: []
-        };
+    this.state = {
+      products: []
+    };
+
+    this.checkProductInCart = this.checkProductInCart.bind(this);
+  }
+
+  componentDidMount() {
+    const { typeService, categoryService } = this.props.match.params;
+    const _this = this;
+
+    axios
+      .get('/service/getResultService', {
+        params: {
+          typeService,
+          categoryService
+        }
+      })
+      .then(res => {
+        const { products } = res.data;
+
+        _this.setState({
+          products
+        });
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  checkProductInCart(productId) {
+    const { cart } = this.props;
+
+    if (!cart) {
+      return;
     }
 
-    componentDidMount() {
-        const {typeService, categoryService} = this.props.match.params;
-        const _this = this;
-
-        axios
-            .get('/service/getResultService', {
-                params: {
-                    typeService,
-                    categoryService
-                }
-            })
-            .then(res => {
-                const {products} = res.data;
-
-                _this.setState({
-                    products
-                });
-            })
-            .catch(err => {
-                console.log(err);
-            });
+    for (let i = 0, len = cart.length; i < len; i++) {
+      if (cart[i].productId === productId) {
+        return true;
+      }
     }
 
-    render() {
-        const { products } = this.state;
+    return false;
+  }
 
-        return (
-            <div>
-                <Row gutter={32}>
-                    <Col xs={24} sm={24} md={12} lg={24} xl={24}>
-                        {products.map((product, i) => <Product key={i} {...product} />)}
-                    </Col>
-                </Row>
+  render() {
+    const { addProduct, removeProduct } = this.props;
+    const { products } = this.state;
+    const _this = this;
 
-                <Row>
-                    <Col xs={24} sm={24} md={12} lg={24} xl={24}>
-                        <Button>RETOUR</Button>
-                    </Col>
-                </Row>
-            </div>
-        );
-    }
+      return (
+          <div>
+              <Row gutter={32}>
+                  <Col xs={24} sm={24} md={12} lg={24} xl={24}>
+                      {products.map((product, i) => (
+                          <Product
+                              key={i}
+                              {...product}
+                              addProduct={addProduct}
+                              removeProduct={removeProduct}
+                              isInCart={_this.checkProductInCart(product.productId)}
+                          />
+                      ))}
+                  </Col>
+              </Row>
+
+              <Row>
+                  <Col xs={24} sm={24} md={12} lg={24} xl={24}>
+                      <Button>RETOUR</Button>
+                  </Col>
+              </Row>
+          </div>
+      );
+  }
 }
 
 export default Products;

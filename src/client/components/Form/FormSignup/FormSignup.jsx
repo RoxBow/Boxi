@@ -13,7 +13,7 @@ class FormSignUp extends React.Component {
 
   componentDidMount() {
     const { emailId } = this.props.match.params;
-
+    
     axios
       .get('/user/getEmailSignup', {
         params: {

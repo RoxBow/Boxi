@@ -16,6 +16,10 @@ const { urlMongoDB } = require('./database');
 const { userMail, passwordMail, host } = require('./accountMail');
 const { port, baseUrl } = require('./constants');
 
+/* # DATA # */
+const { categories } = require('./mock/listCategory.json');
+const { services } = require('./mock/listService.json');
+
 /* # HELPERS # */
 const { generateId } = require('./helpers/generateRandomId');
 
@@ -114,11 +118,20 @@ passport.deserializeUser(User.deserializeUser());
 
 /* ### USER ### */
 
+// Restrict user access
+const checkAuthentication = (req, res, next) => {
+  if (req.isAuthenticated()) {
+    //req.isAuthenticated() will return true if user is logged in
+    next();
+  } else {
+    console.log('Not authenticated');
+    res.redirect('/');
+  }
+};
+
 // Active account when user click in active mail
 app.get('/user/getEmailSignup', (req, res) => {
-  const { emailId } = req.query.emailId;
-
-  User.findOne({ emailId }, (err, user) => {
+  User.findOne({ emailId: req.query.emailId }, (err, user) => {
     if (err) return err;
     res.send({ email: user.email });
   });
@@ -129,7 +142,7 @@ app.post('/users/createEmployees', (req, res) => {
 
   // get all emails sends
   emails.forEach(({ email }) => {
-    // create user only with emails to begin
+    // create user only with email to begin
     const emailId = generateId();
     const user = new User({ email, emailId });
 
@@ -177,30 +190,27 @@ app.post('/user/login', (req, res, next) => {
 
     req.login(user, err => {
       if (err) return res.status(500).send({ err });
-      return res.send({ success: true, message: 'authentication succeeded' });
+      const messageInfo = "You correctly login in, let's login";
+      return res.status(200).send({ messageInfo });
     });
   })(req, res, next);
+});
+
+app.get('/user/checkAuthentication', (req, res) => {
+  const isAuthenticated = req.isAuthenticated();
+  let cart = [];
+
+  if(isAuthenticated && req.session.cart){
+    cart = req.session.cart;
+  }
+
+  res.status(200).send({ isAuthenticated, cart });
 });
 
 /* ### SERVICE ### */
 
 app.get('/service/getListService', (req, res) => {
-  const listService = [
-    {
-      name: 'Journaux',
-      path: 'newspaper'
-    },
-    {
-      name: 'Fruits',
-      path: 'fruit'
-    },
-    {
-      name: 'Colis',
-      path: 'parcel'
-    }
-  ];
-
-  res.send({ listService });
+  res.send({ listService: services });
 });
 
 app.get('/service/getListCategory', (req, res) => {
@@ -209,22 +219,8 @@ app.get('/service/getListCategory', (req, res) => {
 
   switch (typeService) {
     case 'newspaper':
-      listCategory = [
-        {
-          name: 'Sport',
-          path: 'sport'
-        },
-        {
-          name: 'Cuisine',
-          path: 'cooking'
-        },
-        {
-          name: 'Voiture',
-          path: 'car'
-        }
-      ];
+      listCategory = categories.newspaper;
       break;
-
     default:
       break;
   }
@@ -239,6 +235,44 @@ app.get('/service/getResultService', (req, res) => {
     if (err) return err;
     res.send({ products: services });
   });
+});
+
+/* ### CART ### */
+
+app.use((req, res, next) => {
+  if (req.user && !req.session.cart) {
+    console.log('Ici je crée mon cart');
+    req.session.cart = {
+      listProduct: [],
+      totalPrice: 0
+    };
+  }
+  next();
+});
+
+app.post('/cart/addProduct', (req, res) => {
+  const { product } = req.body;
+
+  req.session.cart.totalPrice = req.session.cart.totalPrice + product.price;
+  req.session.cart.listProduct.push(product);
+  req.session.save();
+  
+  res.send({
+    cart: req.session.cart.listProduct,
+    totalPrice: req.session.cart.totalPrice
+  });
+});
+
+app.post('/cart/removeProduct', (req, res) => {
+  const { product } = req.body;
+
+  req.session.cart.totalPrice = req.session.cart.totalPrice - product.price;
+  req.session.cart.listProduct = req.session.cart.listProduct.filter(
+    productInCart => productInCart.productId !== product.productId
+  );
+  req.session.save();
+
+  res.send({ cart: req.session.cart.listProduct, totalPrice: req.session.cart.totalPrice });
 });
 
 // Execute at the end
