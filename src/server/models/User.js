@@ -23,6 +23,7 @@ const User = new Schema(
     emailId: String,
     company: String,
     services: [{ type: Schema.Types.ObjectId, ref: 'Service' }],
+    lastConnection: Date,
     isVerified: {
       type: Boolean,
       default: false

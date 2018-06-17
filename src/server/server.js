@@ -190,6 +190,11 @@ app.post('/user/login', (req, res, next) => {
 
     req.login(user, err => {
       if (err) return res.status(500).send({ err });
+
+      // update last connection date
+      user.lastConnection = new Date();
+      user.save();
+
       const messageInfo = "You correctly login in, let's login";
       return res.status(200).send({ messageInfo });
     });
@@ -241,7 +246,6 @@ app.get('/service/getResultService', (req, res) => {
 
 app.use((req, res, next) => {
   if (req.user && !req.session.cart) {
-    console.log('Ici je crée mon cart');
     req.session.cart = {
       listProduct: [],
       totalPrice: 0
