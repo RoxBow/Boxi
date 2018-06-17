@@ -154,9 +154,7 @@ app.post('/users/createEmployees', (req, res) => {
 
     // save user each time
     user.save(err => {
-      if (err) {
-        throw err;
-      }
+      if (err) throw err;
       console.log('User created');
     });
   });
@@ -205,11 +203,22 @@ app.get('/user/checkAuthentication', (req, res) => {
   const isAuthenticated = req.isAuthenticated();
   let cart = [];
 
-  if(isAuthenticated && req.session.cart){
+  if (isAuthenticated && req.session.cart) {
     cart = req.session.cart;
   }
 
   res.status(200).send({ isAuthenticated, cart });
+});
+
+app.get('/user/getService', (req, res) => {
+  if (req.user) {
+    User.findOne({ _id: req.user._id })
+      .populate('service')
+      .exec((err, user) => {
+        if (err) throw err;
+        res.status(200).send({ services: user.service });
+      });
+  }
 });
 
 /* ### SERVICE ### */
@@ -260,7 +269,7 @@ app.post('/cart/addProduct', (req, res) => {
   req.session.cart.totalPrice = req.session.cart.totalPrice + product.price;
   req.session.cart.listProduct.push(product);
   req.session.save();
-  
+
   res.send({
     cart: req.session.cart.listProduct,
     totalPrice: req.session.cart.totalPrice
@@ -277,6 +286,25 @@ app.post('/cart/removeProduct', (req, res) => {
   req.session.save();
 
   res.send({ cart: req.session.cart.listProduct, totalPrice: req.session.cart.totalPrice });
+});
+
+app.post('/cart/paymentService', (req, res) => {
+  // user has no cart or it's empty
+  if (!req.session.cart || !req.session.cart.listProduct) {
+    const error = "Vous n'avez pas de panier actuellement";
+    return res.send({ error });
+  }
+
+  User.findOne({ _id: req.user._id }, (err, user) => {
+    user.service = req.session.cart.listProduct;
+    user.save(err => {
+      if (err) throw err;
+
+      req.session.cart.totalPrice = 0;
+      req.session.cart.listProduct = [];
+      req.session.save();
+    });
+  });
 });
 
 // Execute at the end

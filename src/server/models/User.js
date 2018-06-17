@@ -22,7 +22,7 @@ const User = new Schema(
     avatar: { type: Schema.Types.ObjectId, ref: 'Image' },
     emailId: String,
     company: String,
-    services: [{ type: Schema.Types.ObjectId, ref: 'Service' }],
+    service: [{ type: Schema.Types.ObjectId, ref: 'Service' }],
     lastConnection: Date,
     isVerified: {
       type: Boolean,
