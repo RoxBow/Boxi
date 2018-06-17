@@ -1,5 +1,6 @@
 import './styles/_reset.scss';
 import './styles/_general.scss';
+import './styles/_variables.scss';
 import { BrowserRouter as Router } from 'react-router-dom';
 import React from 'react';
 import FormCompanyEmployees from './components/Form/FormCompanyEmployees';
@@ -10,6 +11,7 @@ import TypeNewspapers from './components/TypeNewspapers/TypeNewspapers';
 import Newspapers from './components/Newspapers/Newspapers';
 import Cart from './components/Cart/Cart';
 import Footer from './components/Footer/Footer';
+import Home from './components/Home/Home';
 
 class App extends React.Component {
   constructor() {
@@ -20,13 +22,14 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Header />
+          {/* <Header />
           <Banner />
           <QuickActions />
           <TypeNewspapers />
           <Newspapers />
           <Cart totalPrice="11,50 €" />
-          <Footer />
+          <Footer /> */}
+          <Home />
         </div>
       </Router>
     );

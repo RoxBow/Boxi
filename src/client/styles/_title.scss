@@ -1,0 +1,18 @@
+@import './variables';
+
+.composant-title {
+    position: relative;
+    font-family: 'Nunito-SemiBold';
+    font-size: 35px;
+    color: $colorText;
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 62px;
+        height: 6px;
+        background: $yellowBoxi;
+        bottom: -3px;
+        left: 0;
+    }
+} // composant-title

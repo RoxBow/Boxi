@@ -1,8 +1,18 @@
-.wrapper-quick-action {
-    background-color: lightgray;
-    padding: 50px;
+@import './variables';
 
-    i {
-        font-size: 2em;
+.wrapper-quick-action {
+    display: flex;
+    height: 164px;
+    padding-left: 65px;
+    padding-right: 65px;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.08);
+    border-radius: 47px;
+
+    p {
+        font-size: 21px;
+        color: $colorText;
+        font-family: 'Raleway-SemiBold';
+        margin-bottom: 0;
+        margin-left: 30px;
     }
 }

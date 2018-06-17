@@ -75,6 +75,7 @@ app.use(helmet());
 
 // load statics files
 app.use('/contrib', express.static(path.join(__dirname, 'contrib')));
+app.use('/images', express.static(path.join(__dirname, '../client/images')));
 app.use(express.static('dist'));
 
 app.engine('html', require('ejs').renderFile);

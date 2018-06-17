@@ -1,0 +1,38 @@
+@import './variables';
+
+header {
+    padding: 25px 66px 30px 66px;
+    background: #fff;
+    
+    .wrapper-logo {
+        img {
+            width: 134px;
+            height: 64px;
+        }
+    } // wrapper-logo
+
+    .wrapper-links {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        ul {
+            margin-bottom: 0;
+            li {
+                display: inline-block;
+                vertical-align: middle;
+
+                &.wrapper-link-about {
+                    font-size: 18px;
+                    text-transform: uppercase;
+                } // wrapper-link-about
+
+                &.wrapper-link-shoppping {
+                    color: $blueBoxi;
+                    font-size: 32px;
+                    margin-left: 33px;
+                    margin-right: 28px;
+                } // wrapper-link-shoppping
+            }
+        }
+    } // wrapper-links
+} // header

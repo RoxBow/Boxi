@@ -1,25 +1,16 @@
 import React from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
-import PrivateRoute from '../PrivateRoute/PrivateRouteContainer';
-import UserProfile from '../UserProfile/UserProfile';
-import { connect } from 'react-redux';
-import FormSignup from '../Form/FormSignupContainer';
+import Header from '../Header/Header';
+import Banner from '../Banner/Banner';
+import QuickActions from '../QuickActions/QuickActions';
+import TimeLine from '../TimeLine/TimeLine';
 
-const Home = ({ isLoading }) => (
-  <main>
-    <p>Home</p>
-    <FormSignup />
-    
-    {!isLoading && (
-      <Switch>
-        <PrivateRoute path="/user/me" exact component={UserProfile} />
-      </Switch>
-    )}
-  </main>
+const Home = () => (
+  <div>
+    <Header />
+    <Banner />
+    <QuickActions />
+    <TimeLine />
+  </div>
 );
 
-const mapStateToProps = state => ({
-  isLoading: state.user.isLoading
-});
-
-export default withRouter(connect(mapStateToProps)(Home));
+export default Home;

@@ -4,16 +4,20 @@ html,
 body {
   height: 100%;
   font-family: $mainFont, 'Arial', sans-serif;
-  font-size: 16px;
+  max-width: 1440px;
+  margin: auto;
+  background-color: #f8f8f8;
 }
 
 #root,
 #root > div {
   height: 100%;
+  background-color: #f8f8f8;
 }
 
 * {
   box-sizing: border-box;
+  font-size: 16px;
 }
 
 input,
@@ -36,4 +40,39 @@ h3,
 h4,
 p {
   margin: 0;
+}
+
+@font-face {
+  font-family: "Nunito-Bold";
+  src: url("../fonts/Nunito-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Nunito-SemiBold";
+  src: url("../fonts/Nunito-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Bold";
+  src: url("../fonts/Raleway-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-SemiBold";
+  src: url("../fonts/Raleway-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Light";
+  src: url("../fonts/Raleway-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-LightItalic";
+  src: url("../fonts/Raleway-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Regular";
+  src: url("../fonts/Raleway-Regular.ttf") format("truetype");
 }

@@ -1,7 +1,86 @@
-.wrapper-banner {
-    background-color: lightgrey;
+@import './variables';
 
-    h2, p {
-        text-align: center;
-    }
-}
+.wrapper-banner {
+    background-color: $blueBoxi;
+    padding: 110px 0;
+
+    .wrapper-banner-content {
+        margin: auto;
+        float: inherit;
+
+        h2, p {
+            color: #ffffff;
+            line-height: 1;
+            padding-left: 123px;
+        }
+    
+        h2 {
+            font-size: 48px;
+            margin-bottom: 0;
+            font-family: 'Nunito-Bold';
+        }
+    
+        .sous-titre {
+            font-size: 28px;
+            margin-bottom: 40px;
+            font-family: 'Raleway-Light';
+        }
+    
+        .text-select-before, .text-select-after {
+            font-size: 25px;
+            margin-bottom: 0;
+            line-height: 1.2;
+            padding: 0;
+        } // text-select
+
+        .text-select-before {
+            font-family: 'Raleway-SemiBold';
+        }
+
+        .text-select-after {
+            font-family: 'Raleway-LightItalic';
+        }
+    
+        .ant-select {
+            width: 280px;
+            height: 32px;
+            margin-right: 45px;
+            margin-left: 8px;
+            outline: none;
+            
+            .ant-select-selection {
+                background-color: transparent;
+                color: #ffffff;
+                border: none;
+                border-bottom: 2px solid #ffffff;
+                border-radius: 0;
+                
+                &:focus {
+                    box-shadow: none;
+                }
+    
+                .ant-select-arrow {
+                    color: #ffffff;
+                    zoom: 1.5;
+                    right: 2px;
+                } // ant-select-arrow
+    
+                .ant-select-selection__rendered {
+                    margin-left: 0;
+                } // ant-select-selection__rendered
+            } // ant-select-selection
+        } // ant-select
+    
+        button {
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            background-color: transparent;
+            height: 40px;
+
+            span {
+                font-size: 25px;
+                font-family: 'Nunito-Bold';
+            }
+        }
+    } // wrapper-banner-content
+} // wrapper-banner
