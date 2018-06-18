@@ -2,9 +2,9 @@ import '../../../../node_modules/antd/dist/antd.css';
 import '../../styles/_type_newspapers.scss';
 import React from 'react';
 import { Row, Col, Button, Icon } from 'antd';
-import TypeNewspaper from '../TypeNewspaper/TypeNewspaper';
+import Category from './Category';
 
-class TypeNewspapers extends React.Component {
+class Categories extends React.Component {
   constructor() {
     super();
 
@@ -17,22 +17,22 @@ class TypeNewspapers extends React.Component {
         <h2>Quel type de journaux souhaitez-vous recevoir ?</h2>
         <Row gutter={32} type="flex" justify="space-between">
             <Col xs={24} sm={24} md={12} lg={7} xl={7}>
-                <TypeNewspaper name="Sports" icon="smile-o" />
+                <Category name="Sports" icon="smile-o" />
             </Col>
             <Col xs={24} sm={24} md={12} lg={7} xl={7}>
-                <TypeNewspaper name="Sports" icon="smile-o" />
+                <Category name="Sports" icon="smile-o" />
             </Col>
             <Col xs={24} sm={24} md={12} lg={7} xl={7}>
-                <TypeNewspaper name="Sports" icon="smile-o" />
+                <Category name="Sports" icon="smile-o" />
             </Col>
             <Col xs={24} sm={24} md={12} lg={7} xl={7}>
-                <TypeNewspaper name="Sports" icon="smile-o" />
+                <Category name="Sports" icon="smile-o" />
             </Col>
             <Col xs={24} sm={24} md={12} lg={7} xl={7}>
-                <TypeNewspaper name="Sports" icon="smile-o" />
+                <Category name="Sports" icon="smile-o" />
             </Col>
             <Col xs={24} sm={24} md={12} lg={7} xl={7}>
-                <TypeNewspaper name="Sports" icon="smile-o" />
+                <Category name="Sports" icon="smile-o" />
             </Col>
         </Row>
 
@@ -49,4 +49,4 @@ class TypeNewspapers extends React.Component {
   }
 }
 
-export default TypeNewspapers;
+export default Categories;

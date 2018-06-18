@@ -1,9 +1,9 @@
 import '../../../../node_modules/antd/dist/antd.css';
-import '../../styles/_type_newspaper.scss';
+import '../../styles/_category.scss';
 import React from 'react';
 import { Row, Col, Button, Icon } from 'antd';
 
-class TypeNewspaper extends React.Component {
+class Category extends React.Component {
   constructor() {
     super();
 
@@ -14,7 +14,7 @@ class TypeNewspaper extends React.Component {
     return (
       <div>
         <Row type="flex" justify="center">
-            <Col xs={24} sm={24} md={12} lg={24} xl={24} className="wrapper-type-newspaper">
+            <Col xs={24} sm={24} md={12} lg={24} xl={24} className="wrapper-type-category">
                 <Icon type={this.props.icon} />
                 <p>{this.props.name}</p>
             </Col>
@@ -24,4 +24,4 @@ class TypeNewspaper extends React.Component {
   }
 }
 
-export default TypeNewspaper;
+export default Category;

@@ -7,8 +7,6 @@ import FormCompanyEmployees from './components/Form/FormCompanyEmployees';
 import Header from './components/Header/Header';
 import Banner from './components/Banner/Banner';
 import QuickActions from './components/QuickActions/QuickActions';
-import TypeNewspapers from './components/TypeNewspapers/TypeNewspapers';
-import Newspapers from './components/Newspapers/Newspapers';
 import Cart from './components/Cart/Cart';
 import Footer from './components/Footer/Footer';
 import Home from './components/Home/Home';
@@ -22,13 +20,6 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          {/* <Header />
-          <Banner />
-          <QuickActions />
-          <TypeNewspapers />
-          <Newspapers />
-          <Cart totalPrice="11,50 €" />
-          <Footer /> */}
           <Home />
         </div>
       </Router>

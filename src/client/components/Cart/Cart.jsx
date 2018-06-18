@@ -2,7 +2,7 @@ import '../../../../node_modules/antd/dist/antd.css';
 import '../../styles/_cart.scss';
 import React from 'react';
 import { Row, Col, Icon, Button } from 'antd';
-import Newspaper from '../Newspaper/Newspaper';
+import Category from '../Categories/Category';
 
 class Cart extends React.Component {
   constructor() {
@@ -23,11 +23,11 @@ class Cart extends React.Component {
             </div>
             
             <div className="wrapper-cart-body">
-                <Newspaper price="1.99 €" name="Public" description="Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité" />
+                <Category price="1.99 €" name="Public" description="Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité" />
 
-                <Newspaper price="1.99 €" name="Closer" description="Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité" />
+                <Category price="1.99 €" name="Closer" description="Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité" />
 
-                <Newspaper price="1.99 €" name="Oops" description="Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité" />
+                <Category price="1.99 €" name="Oops" description="Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité Lorem ipséité" />
             </div>
             
             <div className="wrapper-cart-footer">
