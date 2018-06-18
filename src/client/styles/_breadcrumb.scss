@@ -1,0 +1,25 @@
+@import './variables';
+
+.wrapper-breadcrumb {
+    border-bottom: 1px solid $blackBoxi;
+    padding-top: 90px;
+
+    h2 {
+        font-family: 'Nunito-Bold';
+        font-size: 48px;
+        color: $colorText;
+        line-height: 1;
+        margin-bottom: 12px;
+    }
+
+    p {
+        font-size: 20px;
+        font-family: 'Raleway-LightItalic';
+        line-height: 1;
+        margin-bottom: 12px;
+
+        span {
+            font-family: 'Raleway-SemiBoldItalic';
+        }
+    }
+} // wrapper-breadcrumb

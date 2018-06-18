@@ -1,18 +1,21 @@
 import '../../../../node_modules/antd/dist/antd.css';
 import '../../styles/_category.scss';
 import React from 'react';
-import { Row, Col, Icon } from 'antd';
-import { Link } from 'react-router-dom';
+import {Row, Col, Icon} from 'antd';
+import {Link} from 'react-router-dom';
 
-const Category = ({ name, path, typeService, icon }) => (
-  <Link to={`/service/${typeService}/${path}`}>
-    <Row type="flex" justify="center">
-      <Col xs={24} sm={24} md={12} lg={24} xl={24} className="wrapper-type-category">
-        <Icon type={icon} />
-        <p>{name}</p>
-      </Col>
-    </Row>
-  </Link>
+const Category = ({name, path, typeService, icon}) => (
+    <Link to={`/service/${typeService}/${path}`}>
+        <div className="wrapper-category">
+            <div className="wrapper-category-top">
+                <p>{name}</p>
+            </div>
+            <div className="wrapper-category-bottom">
+                <img src="../../../images/image-category.png" alt="image logo"/>
+            </div>
+            <Button className="btn-add"><span className="icon-btn"></span></Button>
+        </div>
+    </Link>
 );
 
 export default Category;

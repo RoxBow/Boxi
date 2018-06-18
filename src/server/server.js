@@ -38,7 +38,7 @@ const db = mongoose.connection;
 // security (limit number request)
 const apiLimiter = new RateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 2050,
+  max: 2000,
   delayMs: 0 // disabled
 });
 

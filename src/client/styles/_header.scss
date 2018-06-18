@@ -1,8 +1,11 @@
 @import './variables';
 
 header {
-    padding: 25px 66px 30px 66px;
     background: #fff;
+
+    .container {
+        padding: 25px 66px 30px 66px;
+    } // container
     
     .wrapper-logo {
         img {

@@ -6,6 +6,7 @@ import QuickActions from '../QuickActions/QuickActionsContainer';
 import TimeLine from '../TimeLine/TimeLine';
 import Budget from '../Budget/Budget';
 import Cart from '../Cart/CartContainer';
+import Footer from '../Footer/Footer';
 
 const Home = ({ isCartOpen }) => (
   <div>
@@ -21,6 +22,7 @@ const Home = ({ isCartOpen }) => (
         <TimeLine />
       </Col>
     </Row>
+    <Footer />
   </div>
 );
 

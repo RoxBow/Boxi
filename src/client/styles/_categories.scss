@@ -1,7 +1,31 @@
-.wrapper-buttons-action {
-    div:last-child {
-        button {
+@import './variables';
+
+.wrapper-composant-categories {
+    margin-top: 70px;
+
+    .wrapper-categories {
+        margin-top: 80px;
+    } // wrapper-categories
+
+    .wrapper-buttons-action {
+        .btn-action {
+            width: 183px;
+            height: 55px;
+            border-radius: 39px;
+            border: 2px solid $blueBoxi;
+            font-family: 'Nunito-Bold';
+            font-size: 20px;
+        } // btn-action
+
+        .btn-primary {
+            background-color: $blueBoxi;
+            color: #ffffff;
             float: right;
         }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: $blueBoxi;
+        }
     }
-}
+} // wrapper-composant-categories
