@@ -1,4 +1,4 @@
-import { UPDATE_CART, SET_ERROR, OPEN_CART, CLOSE_CART } from './action';
+import { UPDATE_CART, SET_ERROR, OPEN_CART, CLOSE_CART, SET_SELECTED_PRODUCT } from './action';
 
 const initialState = {
   products: [],
@@ -29,6 +29,11 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         isOpen: false
+      };
+    case SET_SELECTED_PRODUCT:
+      return {
+        ...state,
+        selectedProduct: action.selectedProduct
       };
     default:
       return state;

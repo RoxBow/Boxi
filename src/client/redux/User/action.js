@@ -1,4 +1,8 @@
 import axios from 'axios';
+
+import { setSelectedProduct } from '../Cart/action';
+import { showPopin } from '../Popin/action';
+
 export const SET_MESSAGE_INFO = 'SET_MESSAGE_INFO';
 export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
@@ -6,7 +10,6 @@ export const SET_AUTHENTICATION = 'SET_AUTHENTICATION';
 export const SET_ERROR = 'SET_ERROR';
 
 export const requestSignUp = (email, password) => {
-
   return dispatch => {
     axios
       .post('/user/signup', {
@@ -50,7 +53,6 @@ export const requestLogin = e => {
 };
 
 export const setMessageInfo = messageInfo => {
-
   return {
     type: SET_MESSAGE_INFO,
     messageInfo
@@ -84,5 +86,12 @@ export const setError = errorMessage => {
   return {
     type: SET_ERROR,
     errorMessage
+  };
+};
+
+export const buyProduct = (popinType, selectedProduct) => {
+  return dispatch => {
+    dispatch(setSelectedProduct(selectedProduct));
+    dispatch(showPopin(popinType));
   };
 };

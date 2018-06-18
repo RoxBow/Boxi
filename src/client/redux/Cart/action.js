@@ -4,6 +4,7 @@ export const UPDATE_CART = 'UPDATE_CART';
 export const SET_ERROR = 'SET_ERROR';
 export const OPEN_CART = 'OPEN_CART';
 export const CLOSE_CART = 'CLOSE_CART';
+export const SET_SELECTED_PRODUCT = 'SET_SELECTED_PRODUCT';
 
 export const addProduct = product => {
   return dispatch => {
@@ -60,4 +61,9 @@ export const updateCart = (cart, totalPrice) => ({
 export const setError = error => ({
   type: SET_ERROR,
   error
+});
+
+export const setSelectedProduct = selectedProduct => ({
+  type: SET_SELECTED_PRODUCT,
+  selectedProduct
 });

@@ -8,6 +8,7 @@ import FormSignup from './components/Form/FormSignup/FormSignupContainer';
 import FormLogin from './components/Form/FormLogin/FormLoginContainer';
 import Home from './components/Home/HomeContainer';
 import Products from './components/Products/ProductsContainer';
+import Popin from './components/Popin/PopinContainer';
 
 class App extends React.Component {
   constructor() {
@@ -24,6 +25,7 @@ class App extends React.Component {
           <Route path="/login" exact component={FormLogin}/>
           <Route path="/service/:typeService/:categoryService" exact component={Products}/>
           <Route path="/service/:typeService" exact component={PageCategories}/>
+          <Popin />
         </div>
       </Router>
     );

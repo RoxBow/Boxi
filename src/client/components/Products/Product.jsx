@@ -2,6 +2,7 @@ import 'antd/dist/antd.css';
 import '../../styles/_product.scss';
 import React from 'react';
 import { Button } from 'antd';
+import { STEP1BUY } from '../../constants';
 
 class Product extends React.Component {
   constructor(props) {
@@ -9,8 +10,8 @@ class Product extends React.Component {
   }
 
   render() {
-    const { title, price, isInCart, addProduct, removeProduct } = this.props;
-
+    const { title, price, isInCart, buyProduct, removeProduct } = this.props;
+    
     return (
       <div className="wrapper-product">
           <div className="wrapper-product-top">
@@ -26,7 +27,7 @@ class Product extends React.Component {
                 <span className="icon-btn"></span>
               </Button>
             ) : (
-              <Button className="btn-add" onClick={() => addProduct(this.props)}>
+              <Button className="btn-add" onClick={() => buyProduct(STEP1BUY, this.props)}>
                   <span className="icon-btn"></span>
               </Button>
             )}

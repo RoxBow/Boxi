@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
-import { addProduct, removeProduct } from '../../redux/Cart/action';
+import { removeProduct } from '../../redux/Cart/action';
+import { buyProduct } from '../../redux/User/action';
 import Products from './Products';
 
 const mapStateToProps = state => ({
-  cart: state.cart.products,
+  cart: state.cart.products
 });
 
 const mapDispatchToProps = dispatch => ({
-  addProduct: productId => dispatch(addProduct(productId)),
-  removeProduct: productId => dispatch(removeProduct(productId))
+  removeProduct: productId => dispatch(removeProduct(productId)),
+  buyProduct: (popinType, selectedProduct) => dispatch(buyProduct(popinType, selectedProduct))
 });
 
 export default connect(
