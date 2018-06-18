@@ -1,0 +1,69 @@
+@import './variables';
+
+.wrapper-budget {
+    margin-top: 120px;
+
+    .wrapper-progress-circle {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        width: 290px;
+        height: 290px;
+        margin-top: 70px;
+
+        .ant-progress-circle-path {
+            stroke: $blueBoxi;
+        } // ant-progress-circle-path
+
+        .progress-circle-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-family: 'Nunito-Bold';
+            color: $blueBoxi;
+            text-align: center;
+            margin-bottom: 0;
+    
+            span {
+                display: block;
+                font-size: 18px;
+                font-family: 'Raleway-Regular';
+                text-align: center;
+                margin-top: -15px;
+            }
+        } // progress-circle-text
+
+        .progress-circle-info {
+            width: 100%;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 320px;
+            font-size: 18px;
+            font-family: 'Raleway-SemiBold';
+        } // progress-circle-info
+    } // wrapper-progress-circle
+
+    .text-budget-info {
+        font-size: 18px;
+        font-family: 'Raleway-Regular';
+        color: $colorText;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    } // text-budget-info
+    
+    button {
+        position: absolute;
+        bottom: -54px;
+        color: $blueBoxi;
+        background-color: transparent;
+        border: 2px solid $blueBoxi;
+        width: 183px;
+        height: 55px;
+        border-radius: 39px;
+        font-size: 20px;
+        font-family: 'Nunito-Bold';
+    }
+} // wrapper-budget 

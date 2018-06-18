@@ -23,7 +23,12 @@ header {
 
                 &.wrapper-link-about {
                     font-size: 18px;
+                    font-family: 'Raleway-SemiBold';
                     text-transform: uppercase;
+
+                    a {
+                        color: $colorText;
+                    }
                 } // wrapper-link-about
 
                 &.wrapper-link-shoppping {
@@ -31,6 +36,7 @@ header {
                     font-size: 32px;
                     margin-left: 33px;
                     margin-right: 28px;
+                    vertical-align: inherit;
                 } // wrapper-link-shoppping
             }
         }

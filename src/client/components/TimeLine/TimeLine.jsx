@@ -5,9 +5,7 @@ import { Row, Col, Timeline, Button } from 'antd';
 import { Link } from 'react-router-dom'
 import Title from '../Title/Title';
 
-import QuickAction from '../QuickAction/QuickAction';
-
-class QuickActions extends React.Component {
+class TimeLine extends React.Component {
   constructor() {
     super();
 
@@ -30,14 +28,29 @@ class QuickActions extends React.Component {
                 </div>
                 <Link to='/details-commande'>Voir plus</Link>
             </Timeline.Item>
-            <Timeline.Item>Solve initial network problems 2015-09-01</Timeline.Item>
-            <Timeline.Item>Technical testing 2015-09-01</Timeline.Item>
-            <Timeline.Item>Network problems being solved 2015-09-01</Timeline.Item>
-            <Button>Voir plus</Button>
+            <Timeline.Item>
+                <p>Le 18 juin à 10h00, vous avez commandé :</p>
+                <img src="../../images/icon-burger.png" alt="burger" />
+                <div className="wrapper-content">
+                    <p className="type-order">Burger</p>
+                    <p className="price-order">9.99€</p>
+                </div>
+                <Link to='/details-commande'>Voir plus</Link>
+            </Timeline.Item>
+            <Timeline.Item>
+                <p>Le 11 juin à 14h00, vous avez déposé :</p>
+                <img src="../../images/icon-box-small.png" alt="box" />
+                <div className="wrapper-content">
+                    <p className="type-order">Colis</p>
+                    <p className="price-order">5.99€</p>
+                </div>
+                <Link to='/details-commande'>Voir plus</Link>
+            </Timeline.Item>
+            <Button><Link to="/see-more">Voir plus</Link></Button>
         </Timeline>
       </div>
     );
   }
 }
 
-export default QuickActions;
+export default TimeLine;

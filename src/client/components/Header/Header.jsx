@@ -17,7 +17,7 @@ class Header extends React.Component {
     const { } = this.state;
 
     return (
-        <header>
+        <header className="container">
             <Row type="flex" justify="space-between">
                 <Col xs={24} sm={24} md={6} lg={4} xl={4} className="wrapper-logo">
                     <img src="../../../images/boxi-logo.svg" alt="logo" />
@@ -26,8 +26,8 @@ class Header extends React.Component {
                 <Col xs={24} sm={24} md={6} lg={6} xl={6} className="wrapper-links">
                     <ul>
                         <li className="wrapper-link-about"><NavLink to="/about" activeClassName="selected">A propos</NavLink></li>
-                        <li className="wrapper-link-shoppping"><NavLink to="/moncompte"><ShoppingBasket /></NavLink></li>
-                        <li><NavLink to="/inscription"><img src="../../../images/img-compte.jpg" alt="image logo" /></NavLink></li>
+                        <li className="wrapper-link-shoppping"><NavLink to="/moncompte"><img src="../../../images/panier.png" alt="panier image" /></NavLink></li>
+                        <li><NavLink to="/inscription"><img src="../../../images/img-compte.jpg" alt="image utilisateur" /></NavLink></li>
                     </ul>
                 </Col>
             </Row>

@@ -4,7 +4,6 @@ html,
 body {
   height: 100%;
   font-family: $mainFont, 'Arial', sans-serif;
-  max-width: 1440px;
   margin: auto;
   background-color: #f8f8f8;
 }
@@ -41,6 +40,11 @@ h4,
 p {
   margin: 0;
 }
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+} // container
 
 @font-face {
   font-family: "Nunito-Bold";

@@ -3,10 +3,12 @@
 .wrapper-quick-action {
     display: flex;
     height: 164px;
+    margin-top: 30px;
     padding-left: 65px;
     padding-right: 65px;
     box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.08);
     border-radius: 47px;
+    cursor: pointer;
 
     p {
         font-size: 21px;
