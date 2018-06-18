@@ -1,4 +1,4 @@
-import '../../../../node_modules/antd/dist/antd.css';
+import 'antd/dist/antd.css';
 import '../../styles/_quick_actions.scss';
 import React from 'react';
 import { Row, Col } from 'antd';
@@ -19,7 +19,6 @@ class QuickActions extends React.Component {
 
   render() {
     const { listService } = this.props;
-    console.log(listService);
 
     return (
       <div className="wrapper-quick-actions container">

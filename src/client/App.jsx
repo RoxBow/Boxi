@@ -18,12 +18,12 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Home />
+          <Route path="/" exact component={Home}/>
           <Route path="/activationAccount/:emailId" exact component={FormSignup}/>
           <Route path="/registerEmployees" exact component={FormCompanyEmployees}/>
           <Route path="/login" exact component={FormLogin}/>
-          <Route path="/service/:typeService" component={PageCategories}/>
-          <Route path="/service/:typeService/:categoryService" component={Products}/>
+          <Route path="/service/:typeService/:categoryService" exact component={Products}/>
+          <Route path="/service/:typeService" exact component={PageCategories}/>
         </div>
       </Router>
     );

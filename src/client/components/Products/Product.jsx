@@ -1,4 +1,4 @@
-import '../../../../node_modules/antd/dist/antd.css';
+import 'antd/dist/antd.css';
 import '../../styles/_product.scss';
 import React from 'react';
 import { Button } from 'antd';

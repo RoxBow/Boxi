@@ -1,8 +1,8 @@
-import '../../../../node_modules/antd/dist/antd.css';
+import 'antd/dist/antd.css';
 import '../../styles/_products.scss';
 import React from 'react';
 import axios from 'axios';
-import {Row, Col} from 'antd';
+import {Row, Col, Button} from 'antd';
 import Product from './Product';
 import Title from '../Title/Title';
 
