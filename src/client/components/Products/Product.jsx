@@ -1,6 +1,7 @@
 import '../../../../node_modules/antd/dist/antd.css';
 import '../../styles/_product.scss';
 import React from 'react';
+import { Button } from 'antd';
 
 class Product extends React.Component {
   constructor(props) {
@@ -8,38 +9,28 @@ class Product extends React.Component {
   }
 
   render() {
-    const { title, description, price, isInCart, addProduct, removeProduct } = this.props;
+    const { title, price, isInCart, addProduct, removeProduct } = this.props;
 
     return (
       <div className="wrapper-product">
-        <div className="wrapper-product-body">
-          <h3>
-            {title} - {price.toFixed(2)}€
-          </h3>
-          <div className="wrapper-product-description">
-            <p>{description}</p>
+          <div className="wrapper-product-top">
+              <p>{title}</p>
+              <p>{price.toFixed(2)}€</p>
           </div>
-        </div>
-        <div className="wrapper-product-footer">
-          <div className="wrapper-product-add-remove">
+          <div className="wrapper-product-bottom">
+              <img src="../../../images/image-product.png" alt="image logo" />
+          </div>
+          <div className="wrapper-product-bottom">
             {isInCart ? (
-              <button onClick={() => removeProduct(this.props)}>
-                <span className="icon-add-remove" />
-                Supprimer du panier
-              </button>
+            <Button className="btn-remove" onClick={() => removeProduct(this.props)}>
+                <span className="icon-btn"></span>
+              </Button>
             ) : (
-              <button onClick={() => addProduct(this.props)}>
-                <span className="icon-add-remove" />
-                Ajouter au panier
-              </button>
+              <Button className="btn-add" onClick={() => addProduct(this.props)}>
+                  <span className="icon-btn"></span>
+              </Button>
             )}
           </div>
-          <div className="wrapper-product-see-more">
-            <a href="#">
-              Voir plus<span className="icon-see-more" />
-            </a>
-          </div>
-        </div>
       </div>
     );
   }

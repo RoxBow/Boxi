@@ -1,8 +1,8 @@
 import '../../../../node_modules/antd/dist/antd.css';
 import '../../styles/_category.scss';
 import React from 'react';
-import {Row, Col, Icon} from 'antd';
-import {Link} from 'react-router-dom';
+import { Row, Col, Icon } from 'antd';
+import { Link } from 'react-router-dom';
 
 const Category = ({name, path, typeService, icon}) => (
     <Link to={`/service/${typeService}/${path}`}>
@@ -13,7 +13,6 @@ const Category = ({name, path, typeService, icon}) => (
             <div className="wrapper-category-bottom">
                 <img src="../../../images/image-category.png" alt="image logo"/>
             </div>
-            <Button className="btn-add"><span className="icon-btn"></span></Button>
         </div>
     </Link>
 );

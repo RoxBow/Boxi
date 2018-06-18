@@ -3,7 +3,7 @@ import '../../styles/_page-categories.scss';
 import React from 'react';
 import Header from '../Header/Header';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
-import Categories from '../Categories/Categories';
+import Products from '../Products/Products';
 import Footer from '../Footer/Footer';
 import { Row, Col } from 'antd';
 
@@ -19,7 +19,7 @@ class PageCategories extends React.Component {
         <div>
             <Header />
             <Breadcrumb />
-            <Categories />
+            <Products />
             <Footer />
         </div>
     );
