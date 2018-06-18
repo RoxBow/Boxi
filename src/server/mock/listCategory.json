@@ -2,16 +2,60 @@
   "categories": {
     "newspaper": [
       {
-        "name": "Sport",
-        "path": "sport"
+        "name": "Actualité",
+        "path": "actuality"
+      },
+      {
+        "name": "Art & culture",
+        "path": "culture"
+      },
+      {
+        "name": "Auto / Moto & Transport",
+        "path": "car"
       },
       {
         "name": "Cuisine",
         "path": "cooking"
       },
       {
-        "name": "Voiture",
+        "name": "Féminin",
+        "path": "female"
+      },
+      {
+        "name": "Informatique",
         "path": "car"
+      },
+      {
+        "name": "Jeux",
+        "path": "game"
+      },
+      {
+        "name": "Maison & Jardin",
+        "path": "deco"
+      },
+      {
+        "name": "Presse Masculine",
+        "path": "male"
+      },
+      {
+        "name": "Presse professionnelle",
+        "path": "professionnal"
+      },
+      {
+        "name": "Quotidiens",
+        "path": "daily"
+      },
+      {
+        "name": "Revues internationales",
+        "path": "international"
+      },
+      {
+        "name": "Sciences & Techniques",
+        "path": "science"
+      },
+      {
+        "name": "Sport",
+        "path": "sport"
       }
     ]
   }

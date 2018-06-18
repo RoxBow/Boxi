@@ -3,32 +3,33 @@ import '../../styles/_quick_actions.scss';
 import React from 'react';
 import { Row, Col } from 'antd';
 import Title from '../Title/Title';
-
-import QuickAction from '../QuickAction/QuickAction';
+import QuickAction from './QuickAction';
 
 class QuickActions extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {};
   }
 
+  componentDidMount() {
+    // get list service
+    this.props.fetchService();
+  }
+
   render() {
-    const { } = this.state;
+    const { listService } = this.props;
+    console.log(listService);
 
     return (
       <div className="wrapper-quick-actions container">
-        <Title title="On vous suggère :"/>
+        <Title title="On vous suggère :" />
         <Row type="flex" justify="space-between">
-            <Col xs={24} sm={24} md={7} lg={7} xl={7}>
-                <QuickAction icon="grapes" text="Commander une corbeille de fruits"/>
+          {listService && listService.map((service, i) => (
+            <Col xs={24} sm={24} md={7} lg={7} xl={7} key={i}>
+                <QuickAction icon="grapes" {...service} />
             </Col>
-            <Col xs={24} sm={24} md={7} lg={7} xl={7}>
-                <QuickAction icon="newspapers" text="Recevoir des journaux"/>
-            </Col>
-            <Col xs={24} sm={24} md={7} lg={7} xl={7}>
-                <QuickAction icon="box" text="Déposer un colis"/>
-            </Col>
+          ))}
         </Row>
       </div>
     );

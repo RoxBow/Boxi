@@ -1,9 +1,6 @@
 import { SET_LIST_SERVICE } from './action';
 
-const initialState = {
-};
-
-const serviceReducer = (state = initialState, action) => {
+const serviceReducer = (state = {}, action) => {
   switch (action.type) {
     case SET_LIST_SERVICE:
       return {

@@ -2,38 +2,39 @@ import '../../../../node_modules/antd/dist/antd.css';
 import '../../styles/_header.scss';
 import '../../styles/_variables.scss';
 import React from 'react';
-import { Row, Col, Button, Icon } from 'antd';
-import { NavLink } from 'react-router-dom'
-import ShoppingBasket from 'react-icons/lib/fa/shopping-basket';
+import { Row, Col, Button } from 'antd';
+import { NavLink } from 'react-router-dom';
 
-class Header extends React.Component {
-  constructor() {
-    super();
+const Header = ({ openCart }) => (
+  <header className="container">
+    <Row type="flex" justify="space-between">
+      <Col xs={24} sm={24} md={6} lg={4} xl={4} className="wrapper-logo">
+        <NavLink to="/" activeClassName="selected">
+          <img src="../../../images/boxi-logo.svg" alt="logo" />
+        </NavLink>
+      </Col>
 
-    this.state = {};
-  }
-
-  render() {
-    const { } = this.state;
-
-    return (
-        <header className="container">
-            <Row type="flex" justify="space-between">
-                <Col xs={24} sm={24} md={6} lg={4} xl={4} className="wrapper-logo">
-                    <img src="../../../images/boxi-logo.svg" alt="logo" />
-                </Col>
-
-                <Col xs={24} sm={24} md={6} lg={6} xl={6} className="wrapper-links">
-                    <ul>
-                        <li className="wrapper-link-about"><NavLink to="/about" activeClassName="selected">A propos</NavLink></li>
-                        <li className="wrapper-link-shoppping"><NavLink to="/moncompte"><img src="../../../images/panier.png" alt="panier image" /></NavLink></li>
-                        <li><NavLink to="/inscription"><img src="../../../images/img-compte.jpg" alt="image utilisateur" /></NavLink></li>
-                    </ul>
-                </Col>
-            </Row>
-        </header>
-    );
-  }
-}
+      <Col xs={24} sm={24} md={6} lg={6} xl={6} className="wrapper-links">
+        <ul>
+          <li className="wrapper-link-about">
+            <NavLink to="/about" activeClassName="selected">
+              A propos
+            </NavLink>
+          </li>
+          <li className="wrapper-link-shoppping">
+            <Button onClick={openCart}>
+              <img src="../../../images/panier.png" alt="panier image" />
+            </Button>
+          </li>
+          <li>
+            <NavLink to="/login">
+              <img src="../../../images/img-compte.jpg" alt="image utilisateur" />
+            </NavLink>
+          </li>
+        </ul>
+      </Col>
+    </Row>
+  </header>
+);
 
 export default Header;

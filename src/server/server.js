@@ -38,7 +38,7 @@ const db = mongoose.connection;
 // security (limit number request)
 const apiLimiter = new RateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 150,
+  max: 2050,
   delayMs: 0 // disabled
 });
 
@@ -305,6 +305,15 @@ app.post('/cart/paymentService', (req, res) => {
       req.session.save();
     });
   });
+});
+
+app.get('/cart/getCart', (req, res) => {
+  if(req.session.cart && req.session.cart.listProduct){
+    return res.send({ cart: req.session.cart.listProduct, totalPrice: req.session.cart.totalPrice });
+  } else {
+    const error = "Vous n'avez pas de panier actuellement";
+    return res.send({ error });
+  }
 });
 
 // Execute at the end

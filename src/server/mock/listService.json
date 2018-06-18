@@ -1,15 +1,15 @@
 {
   "services": [
     {
-      "name": "Journaux",
+      "name": "Recevoir des journaux",
       "path": "newspaper"
     },
     {
-      "name": "Fruits",
+      "name": "Commander une corbeille de fruits",
       "path": "fruit"
     },
     {
-      "name": "Colis",
+      "name": "Déposer un colis",
       "path": "parcel"
     }
   ]
