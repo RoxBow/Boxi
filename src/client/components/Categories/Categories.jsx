@@ -42,15 +42,7 @@ class Categories extends React.Component {
         console.log(err);
       });
   }
-
-  handleLoad(){
-    console.log('bonjour');
-
-    this.setState({
-      isLoading: false
-    });
-  }
-
+  
   render() {
     const { isLoading, listCategory } = this.state;
     const { typeService } = this.props.match.params;
