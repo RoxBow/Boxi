@@ -5,6 +5,35 @@
 
     .wrapper-products {
         margin-top: 80px;
+
+        .wrapper-product {
+            display: inline-block;
+            vertical-align: middle;
+            width: 45%;
+            box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.08);
+
+            &.active {
+                .wrapper-product-bottom {
+                    img {
+                        filter: inherit;
+                    }
+                } // wrapper-product-bottom
+            } // active
+
+            &:nth-child(even) {
+                float: right;
+            }
+
+            .wrapper-product-bottom {
+                height: 155px;
+                overflow: hidden;
+
+                img {
+                    width: 100%;
+                    filter: grayscale(100%);
+                }
+            } // wrapper-product-bottom
+        } // wrapper-product
     } // wrapper-products
 
     .wrapper-buttons-action {

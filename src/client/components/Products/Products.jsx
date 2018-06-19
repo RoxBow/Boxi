@@ -32,19 +32,17 @@ class Products extends React.Component {
     const _this = this;
 
     return (
-      <Row gutter={96} type="flex" justify="space-between" className="wrapper-products">
-        <Col xs={24} sm={24} md={12} lg={12} xl={12}>
-          {products.map((product, i) => (
-            <Product
-              key={i}
-              {...product}
-              buyProduct={buyProduct}
-              removeProduct={removeProduct}
-              isInCart={_this.checkProductInCart(product.productId)}
-            />
-          ))}
-        </Col>
-      </Row>
+      <div className="wrapper-products">
+        {products.map((product, i) => (
+          <Product
+            key={i}
+            {...product}
+            buyProduct={buyProduct}
+            removeProduct={removeProduct}
+            isInCart={_this.checkProductInCart(product.productId)}
+          />
+        ))}
+      </div>
     );
   }
 }

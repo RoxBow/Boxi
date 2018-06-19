@@ -10,18 +10,18 @@ class Product extends React.Component {
   }
 
   render() {
-    const { title, price, isInCart, buyProduct, removeProduct } = this.props;
+    const { title, price, isInCart, buyProduct, removeProduct, productId } = this.props;
     
     return (
-      <div className="wrapper-product">
+      <div  className={ isInCart ? "wrapper-product active" : "wrapper-product" } >
           <div className="wrapper-product-top">
               <p>{title}</p>
               <p>{price.toFixed(2)}€</p>
           </div>
           <div className="wrapper-product-bottom">
-              <img src="../../../images/image-product.png" alt="image logo" />
+              <img src={"../../../images/" + productId + ".jpg"} alt={"image du magazine " + title } />
           </div>
-          <div className="wrapper-product-bottom">
+          <div>
             {isInCart ? (
             <Button className="btn-remove" onClick={() => removeProduct(this.props)}>
                 <span className="icon-btn"></span>
