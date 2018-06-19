@@ -24,6 +24,7 @@ class Cart extends React.Component {
     return (
       <div className="wrapper-cart">
         <div className="wrapper-cart-content">
+          <span onClick={closeCart} className="close"></span>
           {listProduct ? (
             <div>
               <div className="wrapper-cart-header">
@@ -42,10 +43,9 @@ class Cart extends React.Component {
           )}
 
           <div className="wrapper-cart-footer">
-            <p>Total : {totalPrice ? totalPrice.toFixed(2) : 0}€</p>
-            <p>Ce montant sera prélevé sur votre paie mensuel</p>
-            <Button onClick={closeCart}>Fermer</Button>
-            <Button onClick={this.payService}>Valider</Button>
+            <p className="cart-total">Total :</p>
+            <p className="cart-price">{totalPrice ? totalPrice.toFixed(2) : 0}€</p>
+            <Button onClick={this.payService} className="btn-action btn-primary">Valider</Button>
           </div>
         </div>
       </div>
