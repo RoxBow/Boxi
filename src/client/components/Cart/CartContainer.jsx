@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Cart from './Cart';
+import { withRouter } from 'react-router';
 import { removeProduct, closeCart } from '../../redux/Cart/action';
 
 const mapStateToProps = state => ({
@@ -12,7 +13,9 @@ const mapDispatchToProps = dispatch => ({
   closeCart: () => dispatch(closeCart())
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Cart);
+export default withRouter(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(Cart)
+);

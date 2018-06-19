@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from 'antd';
 import CartProduct from './CartProduct';
 import CartEmpty from './CartEmpty';
-
+import { Link } from 'react-router-dom';
 class Cart extends React.Component {
   constructor(props) {
     super(props);
@@ -20,11 +20,12 @@ class Cart extends React.Component {
 
   render() {
     const { listProduct, totalPrice, closeCart, removeProduct } = this.props;
+    const currentPath = this.props.match.path;
 
     return (
       <div className="wrapper-cart">
         <div className="wrapper-cart-content">
-          <span onClick={closeCart} className="close"></span>
+          <span onClick={closeCart} className="close" />
           {listProduct ? (
             <div>
               <div className="wrapper-cart-header">
@@ -45,7 +46,13 @@ class Cart extends React.Component {
           <div className="wrapper-cart-footer">
             <p className="cart-total">Total :</p>
             <p className="cart-price">{totalPrice ? totalPrice.toFixed(2) : 0}€</p>
-            <Button onClick={this.payService} className="btn-action btn-primary">Valider</Button>
+            {currentPath === '/cart/recap' ? (
+              <Button onClick={this.payService} className="btn-action btn-primary">
+                Finaliser la commande
+              </Button>
+            ) : (
+              <Link to="/cart/recap">Valider</Link>
+            )}
           </div>
         </div>
       </div>

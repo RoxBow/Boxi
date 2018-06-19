@@ -2,14 +2,13 @@ import 'antd/dist/antd.css';
 import '../../styles/_page-categories.scss';
 import React from 'react';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
-import Categories from '../Categories/Categories';
 import TemplatePage from '../TemplatePage/TemplatePage';
 
-const PageCategories = () => (
+const PageRecap = () => (
   <TemplatePage>
     <Breadcrumb />
-    <Categories />
+    <div>Page recap</div>
   </TemplatePage>
 );
 
-export default PageCategories;
+export default PageRecap;

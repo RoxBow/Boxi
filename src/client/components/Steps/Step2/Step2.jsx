@@ -18,9 +18,9 @@ const Step2 = ({ selectedProduct, showPopin, hidePopin }) => {
         <Button onClick={() => hidePopin()} className="btn-action btn-secondary btn-back-to-products">
           Retourner aux produits
         </Button>
-        <Button onClick={() => showPopin(STEP3BUY)} className="btn-action btn-primary">
-          Valider
-        </Button>
+        <Link to='cart/recap' className="btn-action btn-primary">
+          Finaliser la commande
+        </Link>
       </div>
     </div>
   );
