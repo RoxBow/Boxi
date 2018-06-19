@@ -2,6 +2,8 @@
 
 .wrapper-quick-action {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
     height: 164px;
     margin-top: 30px;
     padding-left: 65px;
@@ -9,6 +11,10 @@
     box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.08);
     border-radius: 47px;
     cursor: pointer;
+
+    &:hover, &:focus, &:active {
+        box-shadow: 3px 4px 20px 0 rgba(0, 0, 0, 0.3);
+    }
 
     p {
         font-size: 21px;

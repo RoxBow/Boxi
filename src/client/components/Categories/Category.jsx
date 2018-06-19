@@ -1,5 +1,6 @@
 import 'antd/dist/antd.css';
 import '../../styles/_category.scss';
+import '../../styles/_sprite.scss';
 import React from 'react';
 import { Row, Col, Icon } from 'antd';
 import { Link } from 'react-router-dom';
@@ -7,12 +8,8 @@ import { Link } from 'react-router-dom';
 const Category = ({ name, path, typeService, icon }) => (
   <Link to={`/service/${typeService}/${path}`}>
     <div className="wrapper-category">
-      <div className="wrapper-category-top">
-        <p>{name}</p>
-      </div>
-      <div className="wrapper-category-bottom">
-        <img src="../../../images/image-category.png" alt="image logo" />
-      </div>
+      <span className={`icone-${path}`}></span>
+      <p>{name}</p>
     </div>
   </Link>
 );

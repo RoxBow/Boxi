@@ -23,7 +23,7 @@
       },
       {
         "name": "Informatique",
-        "path": "car"
+        "path": "it"
       },
       {
         "name": "Jeux",
@@ -56,6 +56,10 @@
       {
         "name": "Sport",
         "path": "sport"
+      },
+      {
+        "name": "Loisirs Créatifs",
+        "path": "hobbies"
       }
     ]
   }

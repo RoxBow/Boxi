@@ -46,7 +46,7 @@ class Categories extends React.Component {
         <Title title="Sélectionnez les journaux que vous souhaitez recevoir :" />
         <Row gutter={96} type="flex" justify="space-between" className="wrapper-categories">
           {listCategory.map((category, i) => (
-            <Col key={i} xs={24} sm={24} md={12} lg={12} xl={12}>
+            <Col key={i} xs={24} sm={24} md={12} lg={8} xl={8}>
               <Category {...category} typeService={typeService} icon="smile-o" />
             </Col>
           ))}

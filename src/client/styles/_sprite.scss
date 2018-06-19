@@ -1,0 +1,89 @@
+@import './variables';
+
+.boxi_icones {
+    background: url("../images/sprite.png") no-repeat;
+    background-size: 900px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+@mixin proprieteImg($width, $height, $posX, $posY) {
+    background-position: $posX+px $posY+px;
+    width: $width+px;
+    height: $height+px;
+}
+
+.icone-male {
+    @extend .boxi_icones;
+    @include proprieteImg(55, 52, -8, -23);
+}
+
+.icone-female {
+    @extend .boxi_icones;
+    @include proprieteImg(39, 52, -65, -23);
+}
+
+.icone-culture {
+    @extend .boxi_icones;
+    @include proprieteImg(45, 52, -108, -23);
+}
+
+.icone-car {
+    @extend .boxi_icones;
+    @include proprieteImg(56, 55, -303, -22);
+}
+
+.icone-actuality {
+    @extend .boxi_icones;
+    @include proprieteImg(60, 56, -162, -22);
+}
+
+.icone-game {
+    @extend .boxi_icones;
+    @include proprieteImg(52, 52, -242, -23);
+}
+
+.icone-cooking {
+    @extend .boxi_icones;
+    @include proprieteImg(49, 55, -369, -22);
+}
+
+.icone-it {
+    @extend .boxi_icones;
+    @include proprieteImg(38, 55, -430, -22);
+}
+
+.icone-international {
+    @extend .boxi_icones;
+    @include proprieteImg(56, 55, -481, -22);
+}
+
+.icone-hobbies {
+    @extend .boxi_icones;
+    @include proprieteImg(56, 55, -548, -22);
+}
+
+.icone-professionnal {
+    @extend .boxi_icones;
+    @include proprieteImg(35, 55, -607, -22);
+}
+
+.icone-deco {
+    @extend .boxi_icones;
+    @include proprieteImg(35, 55, -652, -22);
+}
+
+.icone-science {
+    @extend .boxi_icones;
+    @include proprieteImg(48, 55, -695, -22);
+}
+
+.icone-daily {
+    @extend .boxi_icones;
+    @include proprieteImg(54, 55, -757, -22);
+}
+
+.icone-sport {
+    @extend .boxi_icones;
+    @include proprieteImg(54, 55, -823, -22);
+}

@@ -1,0 +1,24 @@
+@import './variables';
+
+.wrapper-composant-categories {
+    margin-top: 70px;
+
+    h2 {
+        margin-bottom: 85px;
+    }
+
+    .btn-action {
+        width: 183px;
+        height: 55px;
+        border-radius: 39px;
+        border: 2px solid $blueBoxi;
+        font-family: 'Nunito-Bold';
+        font-size: 20px;
+        margin-top: 35px;
+    } // btn-action
+
+    .btn-secondary {
+        background-color: transparent;
+        color: $blueBoxi;
+    }
+} // wrapper-composant-categories

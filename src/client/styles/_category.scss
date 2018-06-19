@@ -1,0 +1,25 @@
+@import './variables';
+
+.wrapper-category {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: #fff;
+    padding: 60px 65px 60px 80px;
+    border-radius: 47px;
+    margin-bottom: 45px;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.08);
+
+    &:hover, &:focus, &:active {
+        box-shadow: 3px 4px 20px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+        font-family: 'Raleway-SemiBold';
+        font-size: 21px;
+        color: $colorText;
+        margin-bottom: 0;
+        text-align: center;
+        width: 50%;
+    }
+} // wrapper-category

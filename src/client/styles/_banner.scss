@@ -1,8 +1,9 @@
 @import './variables';
 
 .wrapper-banner {
-    background-color: $blueBoxi;
     padding: 110px 0;
+    background-image: url('../images/motif.png');
+    background-color: $blueBoxi;
 
     .wrapper-banner-content {
         margin: auto;
@@ -15,8 +16,7 @@
             width: 92px;
             height: 150px;
             left: -5px;
-            background-image: url(illu-boxi-fleurs.e134ffb2.svg);
-            background-repeat: no-repeat;
+            background: url("../images/illu-boxi-fleurs.svg") no-repeat;
         }
 
         h2, p {
@@ -53,7 +53,7 @@
         }
     
         .ant-select {
-            width: 280px;
+            min-width: 280px;
             height: 36px;
             margin-right: 45px;
             margin-left: 8px;
@@ -80,20 +80,23 @@
     
                 .ant-select-selection__rendered {
                     margin-left: 0;
+
+                    .ant-select-selection__placeholder {
+                        color: #ffffff;
+                    } // ant-select-selection__placeholder
                 } // ant-select-selection__rendered
             } // ant-select-selection
         } // ant-select
     
-        button {
+        a {
             border: 2px solid #ffffff;
             color: #ffffff;
             background-color: transparent;
             height: 40px;
-
-            span {
-                font-size: 25px;
-                font-family: 'Nunito-Bold';
-            }
+            font-size: 25px;
+            font-family: 'Nunito-Bold';
+            padding: 1px 10px;
+            border-radius: 7px;
         }
     } // wrapper-banner-content
 } // wrapper-banner
