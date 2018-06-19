@@ -1,3 +1,4 @@
+import 'antd/dist/antd.css';
 import React from 'react';
 import { Row, Col } from 'antd';
 import Banner from '../Banner/BannerContainer';

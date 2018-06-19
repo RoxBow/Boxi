@@ -11,6 +11,9 @@ import Home from './components/Home/Home';
 import Popin from './components/Popin/PopinContainer';
 import PageProducts from './components/PageProducts/PageProducts';
 
+
+import PageCompany from './components/PageCompany/PageCompany';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -20,7 +23,7 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Route path="/" exact component={Home}/>
+          <Route path="/" exact component={PageCompany}/>
           <Route path="/cart/recap" exact component={PageRecap}/>
           <Route path="/activationAccount/:emailId" exact component={FormSignup}/>
           <Route path="/registerEmployees" exact component={FormCompanyEmployees}/>
