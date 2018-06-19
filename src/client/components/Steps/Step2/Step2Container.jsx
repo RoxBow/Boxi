@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
-import { showPopin, hidePopin } from '../../../redux/Popin/action';
+import { hidePopin } from '../../../redux/Popin/action';
+import { addProduct } from '../../../redux/Cart/action';
 import Step2 from './Step2';
 
 const mapStateToProps = state => ({
@@ -7,8 +8,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  showPopin: popinType => dispatch(showPopin(popinType)),
-  hidePopin: () => dispatch(hidePopin())
+  hidePopin: () => dispatch(hidePopin()),
+  addProduct: product => dispatch(addProduct(product))
 });
 
 export default connect(
