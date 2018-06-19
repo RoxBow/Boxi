@@ -19,11 +19,16 @@ const renderContent = popinType => {
 };
 
 const Popin = ({ isOpen, hidePopin, popinType }) => (
-  <div className={`popin ${isOpen ? 'active' : ''}`}>
-    <span className="close" onClick={hidePopin}>
-      X
-    </span>
-    {renderContent(popinType)}
+  <div className={`overlay ${isOpen ? 'active' : ''}`}>
+    <div className="popin">
+      <div className="wrapper-popin-top">
+        <span className="close" onClick={hidePopin}></span>
+        {renderContent(popinType)}
+      </div>
+      <div className="wrapper-popin-bottom">
+        <img src="../../../images/image-product.png" alt="image magazine" />
+      </div>
+    </div>
   </div>
 );
 
