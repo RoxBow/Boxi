@@ -308,8 +308,11 @@ app.post('/cart/paymentService', (req, res) => {
 });
 
 app.get('/cart/getCart', (req, res) => {
-  if(req.session.cart && req.session.cart.listProduct){
-    return res.send({ cart: req.session.cart.listProduct, totalPrice: req.session.cart.totalPrice });
+  if (req.session.cart && req.session.cart.listProduct) {
+    return res.send({
+      cart: req.session.cart.listProduct,
+      totalPrice: req.session.cart.totalPrice
+    });
   } else {
     const error = "Vous n'avez pas de panier actuellement";
     return res.send({ error });

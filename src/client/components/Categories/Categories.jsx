@@ -6,12 +6,15 @@ import { Row, Col, Button } from 'antd';
 import Category from './Category';
 import Title from '../Title/Title';
 import { withRouter } from 'react-router';
+import Loader from '../Loader/Loader';
+
 class Categories extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      listCategory: []
+      listCategory: [],
+      isLoading: true
     };
   }
 
@@ -28,18 +31,31 @@ class Categories extends React.Component {
       .then(res => {
         const { listCategory } = res.data;
 
-        _this.setState({
-          listCategory
-        });
+        if (listCategory) {
+          _this.setState({
+            listCategory,
+            isLoading: false
+          });
+        }
       })
       .catch(err => {
         console.log(err);
       });
   }
 
+  handleLoad(){
+    console.log('bonjour');
+
+    this.setState({
+      isLoading: false
+    });
+  }
+
   render() {
-    const { listCategory } = this.state;
+    const { isLoading, listCategory } = this.state;
     const { typeService } = this.props.match.params;
+    
+    if (isLoading) return <Loader />;
 
     return (
       <div className="container wrapper-composant-categories">

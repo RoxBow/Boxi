@@ -4,12 +4,11 @@ import React from 'react';
 import { Row, Col } from 'antd';
 import Title from '../Title/Title';
 import QuickAction from './QuickAction';
+import Loader from '../Loader/Loader';
 
 class QuickActions extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {};
   }
 
   componentDidMount() {
@@ -19,14 +18,16 @@ class QuickActions extends React.Component {
 
   render() {
     const { listService } = this.props;
+    
+    if (typeof listService === 'undefined' || listService.length === 0) return <Loader />;
 
     return (
       <div className="wrapper-quick-actions container">
         <Title title="On vous suggère :" />
         <Row type="flex" justify="space-between">
-          {listService && listService.map((service, i) => (
+          {listService.map((service, i) => (
             <Col xs={24} sm={24} md={7} lg={7} xl={7} key={i}>
-                <QuickAction icon="grapes" {...service} />
+              <QuickAction icon="grapes" {...service} />
             </Col>
           ))}
         </Row>

@@ -5,13 +5,15 @@ import axios from 'axios';
 import { Row, Col, Button } from 'antd';
 import Product from './Product';
 import Title from '../Title/Title';
+import Loader from '../Loader/Loader'
 
 class Products extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      products: []
+      products: [],
+      isLoading: true
     };
 
     this.checkProductInCart = this.checkProductInCart.bind(this);
@@ -30,10 +32,12 @@ class Products extends React.Component {
       })
       .then(res => {
         const { products } = res.data;
-
-        _this.setState({
-          products
-        });
+        if (products) {
+          _this.setState({
+            products,
+            isLoading: false
+          });
+        }
       })
       .catch(err => {
         console.log(err);
@@ -43,9 +47,7 @@ class Products extends React.Component {
   checkProductInCart(productId) {
     const { cart } = this.props;
 
-    if (!cart) {
-      return;
-    }
+    if (!cart) return;
 
     for (let i = 0, len = cart.length; i < len; i++) {
       if (cart[i].productId === productId) {
@@ -58,8 +60,10 @@ class Products extends React.Component {
 
   render() {
     const { removeProduct, buyProduct } = this.props;
-    const { products } = this.state;
+    const { products, isLoading } = this.state;
     const _this = this;
+
+    if (isLoading) return <Loader />;
 
     return (
       <div className="container wrapper-composant-products">
