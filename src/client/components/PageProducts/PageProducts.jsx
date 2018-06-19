@@ -1,14 +1,13 @@
 import 'antd/dist/antd.css';
 import '../../styles/_page-categories.scss';
 import React from 'react';
-import Header from '../Header/Header';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import Products from '../Products/ProductsContainer';
-import Footer from '../Footer/Footer';
 import Title from '../Title/Title';
 import { Row, Col, Button } from 'antd';
 import Loader from '../Loader/Loader';
 import axios from 'axios';
+import TemplatePage from '../TemplatePage/TemplatePage';
 
 class PageProducts extends React.Component {
   constructor() {
@@ -51,8 +50,7 @@ class PageProducts extends React.Component {
     if (isLoading) return <Loader />;
 
     return (
-      <div>
-        <Header />
+      <TemplatePage>
         <Breadcrumb />
         <div className="container wrapper-composant-products">
           <Title title="Sélectionnez les journaux que vous souhaitez recevoir :" />
@@ -68,8 +66,7 @@ class PageProducts extends React.Component {
             </Col>
           </Row>
         </div>
-        <Footer />
-      </div>
+      </TemplatePage>
     );
   }
 }
