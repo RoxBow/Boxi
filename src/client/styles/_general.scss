@@ -62,6 +62,11 @@ p {
 }
 
 @font-face {
+  font-family: "Nunito-Regular";
+  src: url("../fonts/Nunito-Regular.ttf") format("truetype");
+}
+
+@font-face {
   font-family: "Raleway-Bold";
   src: url("../fonts/Raleway-Bold.ttf") format("truetype");
 }
@@ -84,6 +89,11 @@ p {
 @font-face {
   font-family: "Raleway-LightItalic";
   src: url("../fonts/Raleway-LightItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Raleway-Italic";
+  src: url("../fonts/Raleway-Italic.ttf") format("truetype");
 }
 
 @font-face {
