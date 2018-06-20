@@ -76,6 +76,8 @@
         } // wrapper-cart-body
     
         .wrapper-cart-footer {
+            margin-top: 80px;
+
             p {
                 color: #fff;
                 font-size: 24px;
@@ -95,12 +97,28 @@
                 }
             }
 
+            a {
+                display: block;
+                margin: auto;
+                text-align: center;
+                width: 183px;
+                height: 55px;
+                border-radius: 39px;
+                border: 2px solid $blueBoxi;
+                font-family: 'Nunito-Bold';
+                font-size: 20px;
+                background-color: $blueBoxi;
+                color: #ffffff;
+                padding: 12px 25px;
+                margin-top: 60px;
+            }
+
             button {
                 margin: auto;
                 display: block;
 
                 &.btn-action {
-                    width: 183px;
+                    width: 250px;
                     height: 55px;
                     border-radius: 39px;
                     border: 2px solid $blueBoxi;

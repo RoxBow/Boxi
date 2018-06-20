@@ -8,6 +8,8 @@
     .wrapper-banner-content {
         margin: auto;
         float: inherit;
+        position: relative;
+        width: 525px;
         
         &::before {
             content: '';
@@ -35,6 +37,10 @@
             font-size: 28px;
             margin-bottom: 40px;
             font-family: 'Raleway-Light';
+        }
+
+        .ant-row-flex {
+            width: 630px;
         }
     
         .text-select-before, .text-select-after {

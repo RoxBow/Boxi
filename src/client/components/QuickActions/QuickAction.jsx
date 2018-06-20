@@ -8,7 +8,7 @@ const QuickAction = ({ icon, name, path }) => (
   <div className="wrapper-quick-action">
     <Link to={`/service/${path}`}>
       <Row type="flex" justify="center" align="middle">
-        <img src={'../../images/icon-' + icon + '.png'} alt={icon} />
+        <img src={'../../images/icon-' + path + '.png'} alt={"image de " + name} />
         <Col xs={24} sm={24} md={12} lg={18} xl={18}>
           <p>{name}</p>
         </Col>

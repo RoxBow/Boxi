@@ -52,49 +52,45 @@
         &.btn-add {
             background-color: $blueBoxi;
 
-            .icon-btn {
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 30px;
-                    height: 4px;
-                    background-color: #fff;
-                    border-radius: 50px;
-                }
-    
-                &::after {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 4px;
-                    height: 30px;
-                    background-color: #fff;
-                    border-radius: 50px;
-                }
-            } // icon-btn
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 30px;
+                height: 4px;
+                background-color: #fff;
+                border-radius: 50px;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 4px;
+                height: 30px;
+                background-color: #fff;
+                border-radius: 50px;
+            }
         } // btn-add
 
         &.btn-remove {
             background-color: $pinkBoxi;
 
-            .icon-btn {
-                &::before {
-                    content: '';
-                    position: absolute;
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 30px;
-                    height: 4px;
-                    background-color: #fff;
-                    border-radius: 50px;
-                }
-            } // icon-btn
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 30px;
+                height: 4px;
+                background-color: #fff;
+                border-radius: 50px;
+            }
         } // btn-remove
     } // button
 } // wrapper-product

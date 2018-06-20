@@ -1,7 +1,6 @@
 import 'antd/dist/antd.css';
 import '../../styles/_product.scss';
 import React from 'react';
-import { Button } from 'antd';
 import { STEP1BUY } from '../../constants';
 
 class Product extends React.Component {
@@ -23,13 +22,13 @@ class Product extends React.Component {
           </div>
           <div>
             {isInCart ? (
-            <Button className="btn-remove" onClick={() => removeProduct(this.props)}>
-                <span className="icon-btn"></span>
-              </Button>
+            <button className="btn-remove" onClick={() => removeProduct(this.props)}>
+                
+              </button>
             ) : (
-              <Button className="btn-add" onClick={() => buyProduct(STEP1BUY, this.props)}>
-                  <span className="icon-btn"></span>
-              </Button>
+              <button className="btn-add" onClick={() => buyProduct(STEP1BUY, this.props)}>
+                  
+              </button>
             )}
           </div>
       </div>
