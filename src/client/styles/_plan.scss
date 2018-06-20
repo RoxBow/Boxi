@@ -1,0 +1,63 @@
+@import './_variables.scss';
+
+.wrapper-plan {
+    .wrapper-day {
+        p, .wrapper-radio {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        p {
+            width: 98px;
+            margin-bottom: 0;
+            margin-right: 25px;
+            font-family: 'Raleway-Regular';
+            font-size: 20px;
+            color: $colorText;
+        } // p
+    } // wrapper-day
+
+    .wrapper-hours {
+        margin-top: 50px;
+
+        p, .ant-select {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        p {
+            width: 98px;
+            margin-bottom: 0;
+            margin-right: 25px;
+            font-family: 'Raleway-Regular';
+            font-size: 20px;
+            color: $colorText;
+        } // p
+
+        .ant-select {
+            .ant-select-selection {
+                padding: 15px 25px;
+                line-height: 1;
+                height: 55px;
+                border-radius: 16px;
+                border: 2px solid $blueBoxi;
+
+                .ant-select-selection__rendered {
+                    line-height: 1;
+                    height: 100%;
+                    font-size: 20px;
+
+                    .ant-select-selection-selected-value {
+                        color: $blueBoxi;
+                    } // ant-select-selection-selected-value
+                }  // ant-select-selection__rendered
+
+                .ant-select-arrow {
+                    right: 23px;
+                    color: $blueBoxi;
+                    zoom: 1.5;
+                } // ant-select-arrow
+            } // ant-select-selection
+        } // ant-select
+    } // wrapper-hours
+} // wrapper-plan

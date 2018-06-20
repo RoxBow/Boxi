@@ -1,0 +1,46 @@
+@import './_variables.scss';
+
+.wrapper-page-plan {
+    .text-summary {
+        font-family: 'Raleway-Regular';
+        font-size: 20px;
+        color: $colorText;
+        line-height: 1.2;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    } // text-summary
+
+    .composant-title {
+        margin-bottom: 40px;
+    } // composant-title
+
+    .wrapper-btns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 80px;
+        margin-bottom: 80px;
+
+        button {
+            &.btn-action {
+                width: 183px;
+                height: 55px;
+                border-radius: 39px;
+                border: 2px solid $blueBoxi;
+                font-family: 'Nunito-Bold';
+                font-size: 20px;
+            } // btn-action
+
+            &.btn-primary {
+                background-color: $blueBoxi;
+                color: #ffffff;
+                float: right;
+            }
+    
+            &.btn-secondary {
+                background-color: transparent;
+                color: $blueBoxi;
+                margin-right: 54px;
+            }
+        }
+    } // wrapper-btns
+} // wrapper-page-plan
