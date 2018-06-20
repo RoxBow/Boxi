@@ -118,3 +118,46 @@
         }  // wrapper-cart-footer
     } // wrapper-cart-content
 } // wrapper-cart
+
+.wrapper-cart-confirmation-content {
+    margin-top: 90px;
+
+    h2 {
+        font-family: 'Nunito-Bold';
+        font-size: 48px;
+        color: $colorText;
+    }
+
+    .wrapper-summary {
+        padding-left: 104px;
+        background: url('../images/check.png') no-repeat;
+        margin-bottom: 100px;
+
+        p {
+            font-size: 20px;
+            color: $colorText;
+            font-family: 'Raleway-Regular';
+
+            span {
+                font-family: 'Raleway-Bold';
+            }
+        }
+    } // wrapper-summary
+
+    a {
+        &.btn-action {
+            width: 311px;
+            height: 55px;
+            border-radius: 39px;
+            border: 2px solid $blueBoxi;
+            font-family: 'Nunito-Bold';
+            font-size: 20px;
+        } // btn-action
+    
+        &.btn-secondary {
+            background-color: transparent;
+            color: $blueBoxi;
+            padding: 12px 25px;
+        }
+    }
+} // wrapper-cart-confirmation-content

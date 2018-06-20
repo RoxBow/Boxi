@@ -11,6 +11,10 @@ import Home from './components/Home/Home';
 import Popin from './components/Popin/PopinContainer';
 import PageProducts from './components/PageProducts/PageProducts';
 
+
+import PageCompany from './components/PageCompany/PageCompany';
+import CartConfirmationPage from './components/Cart/CartConfirmationPage';
+
 class App extends React.Component {
   constructor() {
     super();

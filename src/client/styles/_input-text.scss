@@ -1,0 +1,44 @@
+@import './variables';
+
+.wrapper-input-text {
+    display: inline-block;
+    position: relative;
+    width: 415px;
+
+    input {
+        background: transparent;
+        border-bottom: 2px solid $blackBoxi;
+        width: 100%;
+        height: 47px;
+        font-size: 18px;
+        padding-left: 14px;
+        font-family: 'Nunito-Regular';
+        outline: none;
+
+        &:focus {
+            border-bottom-color: $blueBoxi;
+
+            & ~ span {
+                display: block;
+                top: 0;
+                color: $blueBoxi;
+                font-size: 10px;
+            }
+        }
+    } // input
+
+    span.label_up {
+        top: -3px;
+        color: $blueBoxi;
+        font-size: 10px;
+    }
+
+    input ~ span {
+        position: absolute;
+        left: 14px;
+        top: 9px;
+        font-size: 18px;
+        transition: top .3s ease;
+        font-family: 'Nunito-Regular';
+    } // span
+} // wrapper-input-text
