@@ -7,6 +7,8 @@ import TimeLine from '../TimeLine/TimeLine';
 import Budget from '../Budget/Budget';
 import TemplatePage from '../TemplatePage/TemplatePage';
 
+import PagePlan from '../PagePlan/PagePlan';
+
 const Home = () => (
   <TemplatePage>
     <Banner />
