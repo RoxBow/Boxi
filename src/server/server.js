@@ -26,6 +26,7 @@ const { generateId } = require('./helpers/generateRandomId');
 /* # MODELS # */
 const User = require('./models/User.js');
 const Service = require('./models/Service.js');
+const Company = require('./models/Company.js');
 
 /*
   Add this line before express' response to set CORS header:
@@ -137,29 +138,6 @@ app.get('/user/getEmailSignup', (req, res) => {
   });
 });
 
-app.post('/users/createEmployees', (req, res) => {
-  const { emails } = req.body;
-
-  // get all emails sends
-  emails.forEach(({ email }) => {
-    // create user only with email to begin
-    const emailId = generateId();
-    const user = new User({ email, emailId });
-
-    // send mail to employees
-    sendEmail.send({
-      template: 'example',
-      locals: { url: `${baseUrl}/activationAccount/${emailId}` }
-    });
-
-    // save user each time
-    user.save(err => {
-      if (err) throw err;
-      console.log('User created');
-    });
-  });
-});
-
 app.post('/user/signup', (req, res) => {
   const { email, password } = req.body;
 
@@ -219,6 +197,50 @@ app.get('/user/getService', (req, res) => {
         res.status(200).send({ services: user.service });
       });
   }
+});
+
+/* ### COMPANY ### */
+
+app.post('/company/createCompany', (req, res) => {
+  const { name, director, email, password } = req.body;
+
+  Company.register(new Company({ name, director, email }), password, (err, company) => {
+    if (err) return res.status(500).send({ err });
+
+    return res.send({ company });
+  });
+});
+
+app.post('/company/createEmployees', (req, res) => {
+  const { emails, companyId } = req.body;
+
+  Company.findOne({ _id: companyId }, (err, company) => {
+    if(err) return;
+
+    // get all emails sends
+    emails.forEach(({ email }) => {
+      // create user only with email to begin
+      const emailId = generateId();
+      const user = new User({ email, emailId });
+
+      // send mail to employees
+      sendEmail.send({
+        template: 'example',
+        locals: { url: `${baseUrl}/activationAccount/${emailId}` }
+      });
+
+      // save user each time
+      user.save(err => {
+        if (err) throw err;
+        console.log('User created');
+        company.employees.push(user);
+      });
+    });
+
+    company.save( err => {
+      return res.send({ success: true })
+    });
+  });
 });
 
 /* ### SERVICE ### */

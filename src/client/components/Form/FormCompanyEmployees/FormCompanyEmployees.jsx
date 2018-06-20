@@ -1,28 +1,25 @@
 import '../../../styles/_form.scss';
 import React from 'react';
 import axios from 'axios';
-import Input from '../Input';
 import { Field, FieldArray } from 'redux-form';
+import InputText from '../../InputText/InputText';
 
-const renderMembers = ({ fields, meta: { error, submitFailed } }) => (
-  <ul>
-    <li>
-      <button type="button" onClick={() => fields.push({})}>
-        Ajouter employé
-      </button>
-      {submitFailed && error && <span>{error}</span>}
-    </li>
+const renderMembers = ({ fields }) => (
+  <div>
+    <p>
+      <button className="btn-add" type="button" onClick={() => fields.push({})} />
+    </p>
     {fields.map((member, index) => (
-      <li key={index}>
+      <div className="wrapper-input-fields" key={index}>
         <button type="button" title="Remove employe" onClick={() => fields.remove(index)}>
           Supprimer
         </button>
         <h4>Member #{index + 1}</h4>
 
-        <Field name={`${member}.email`} type="text" component={Input} label="Email" />
-      </li>
+        <Field name={`${member}.email`} type="text" component={InputText} label="Email" />
+      </div>
     ))}
-  </ul>
+  </div>
 );
 
 class FormCompanyEmployees extends React.Component {
@@ -36,11 +33,15 @@ class FormCompanyEmployees extends React.Component {
 
   registerEmployees(e) {
     e.preventDefault();
-    const { emails } = this.props;
+    const { emails, company, setValidCompany } = this.props;
 
     axios
-      .post('/users/createEmployees', {
-        emails
+      .post('/company/createEmployees', {
+        emails,
+        companyId: company._id
+      })
+      .then(res => {
+        setValidCompany();
       })
       .catch(error => {
         console.log(error);
@@ -54,7 +55,7 @@ class FormCompanyEmployees extends React.Component {
       <form onSubmit={this.registerEmployees}>
         <FieldArray name="emails" component={renderMembers} />
         <button type="submit" disabled={submitting}>
-          Valider
+          Continuer
         </button>
       </form>
     );
