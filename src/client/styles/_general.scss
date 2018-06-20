@@ -46,6 +46,11 @@ p {
   margin: auto;
 } // container
 
+.wrapper-padding {
+  padding-left: 65px;
+  padding-right: 65px;
+}
+
 @font-face {
   font-family: "Nunito-Bold";
   src: url("../fonts/Nunito-Bold.ttf") format("truetype");
