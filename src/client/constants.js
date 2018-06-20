@@ -7,6 +7,7 @@ export const LOGIN = 'LOGIN';
 export const PATH = {
   COMPANY: '/company',
   HOME: '/',
+  LIVRAISON: '/cart/livraison',
   RECAP: '/cart/recap',
   LOGIN: '/login',
   TYPESERVICE: '/service/:typeService',

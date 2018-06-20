@@ -67,3 +67,21 @@ export const setSelectedProduct = selectedProduct => ({
   type: SET_SELECTED_PRODUCT,
   selectedProduct
 });
+
+export const payService = () => {
+
+  return dispatch => {
+    axios
+      .post('/cart/paymentService')
+      .then(res => {
+        if (res.data.err) {
+          dispatch(setError(res.data.error));
+        } else {
+          dispatch(updateCart([], 0));
+        }
+      })
+      .catch(err => {
+        dispatch(setError(err.response.data.err.message));
+      });
+  };
+}

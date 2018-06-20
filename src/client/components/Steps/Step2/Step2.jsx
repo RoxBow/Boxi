@@ -1,7 +1,8 @@
 import React from 'react';
+import '../../../styles/_step.scss';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
-import '../../../styles/_step.scss';
+import { PATH } from '../../../constants';
 
 const Step2 = ({ selectedProduct, hidePopin, addProduct }) => {
   const { title, price, productId } = selectedProduct;
@@ -29,7 +30,7 @@ const Step2 = ({ selectedProduct, hidePopin, addProduct }) => {
             Retourner aux produits
           </Button>
           <Link
-            to="/cart/recap"
+            to={PATH.LIVRAISON}
             onClick={() => {
               hidePopin();
               addProduct(selectedProduct);

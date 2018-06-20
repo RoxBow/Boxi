@@ -1,27 +1,18 @@
 import 'antd/dist/antd.css';
 import '../../styles/_cart.scss';
 import React from 'react';
-import { Button } from 'antd';
+import { Link } from 'react-router-dom';
 import CartProduct from './CartProduct';
 import CartEmpty from './CartEmpty';
-import { Link } from 'react-router-dom';
 import { PATH } from '../../constants';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-
-    this.payService = this.payService.bind(this);
-  }
-
-  payService() {
-    axios.post('/cart/paymentService').catch(err => {
-      console.log(err);
-    });
   }
 
   render() {
-    const { listProduct, totalPrice, closeCart, removeProduct } = this.props;
+    const { listProduct, totalPrice, closeCart, removeProduct, payService } = this.props;
     const currentPath = this.props.match.path;
 
     return (
@@ -48,12 +39,12 @@ class Cart extends React.Component {
           <div className="wrapper-cart-footer">
             <p className="cart-total">Total :</p>
             <p className="cart-price">{totalPrice ? totalPrice.toFixed(2) : 0}€</p>
-            {currentPath === PATH.RECAP ? (
-              <Button onClick={this.payService} className="btn-action btn-primary">
+            {currentPath === PATH.LIVRAISON ? (
+              <Link to={PATH.RECAP} onClick={payService} className="btn-action btn-primary">
                 Finaliser la commande
-              </Button>
+              </Link>
             ) : (
-              <Link to={PATH.RECAP}>Valider</Link>
+              <Link to={PATH.LIVRAISON}>Valider</Link>
             )}
           </div>
         </div>

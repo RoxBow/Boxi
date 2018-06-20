@@ -11,10 +11,11 @@ import PageCategories from './components/PageCategories/PageCategories';
 import PageRecap from './components/PageRecap/PageRecap';
 import PageProducts from './components/PageProducts/PageProducts';
 import PageCompany from './components/PageCompany/PageCompanyContainer';
+import PagePlan from './components/PagePlan/PagePlan';
 import PrivateRoute from './components/PrivateRoute/PrivateRouteContainer';
 import { PATH } from './constants';
 
-const { HOME, TYPESERVICE, CATEGORYSERVICE, RECAP } = PATH;
+const { HOME, TYPESERVICE, CATEGORYSERVICE, RECAP, LIVRAISON } = PATH;
 
 class App extends React.Component {
   constructor(props) {
@@ -30,13 +31,14 @@ class App extends React.Component {
           <Route path="/company" exact component={PageCompany} />
           <Route path="/login" exact component={FormLogin} />
           <Route path="/activationAccount/:emailId" exact component={FormSignup} />
-          <Popin />
+          {popinIsOpen && <Popin />}
 
           {!isLoading && (
             <Switch>
               <PrivateRoute path={HOME} exact component={Home} />
               <PrivateRoute path={TYPESERVICE} exact component={PageCategories} />
               <PrivateRoute path={CATEGORYSERVICE} exact component={PageProducts} />
+              <PrivateRoute path={LIVRAISON} exact component={PagePlan} />
               <PrivateRoute path={RECAP} exact component={PageRecap} />
             </Switch>
           )}

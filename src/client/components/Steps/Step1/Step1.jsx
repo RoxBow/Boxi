@@ -13,7 +13,10 @@ const Step1 = ({ selectedProduct, showPopin }) => {
           {title} - {price.toFixed(2)}€
         </p>
         <p className="description-popin">{description}</p>
-        <p>Souhaitez-vous recevoir ce journal <span>une seule fois</span> ou <span>régulièrement</span> ?</p>
+        <p>
+          Souhaitez-vous recevoir ce journal <span>une seule fois</span> ou{' '}
+          <span>régulièrement</span> ?
+        </p>
         <div className="wrapper-btns">
           <Button onClick={() => showPopin(STEP2BUY)} className="btn-action btn-secondary">
             Juste une fois
@@ -24,7 +27,7 @@ const Step1 = ({ selectedProduct, showPopin }) => {
         </div>
       </div>
       <div className="wrapper-popin-bottom">
-        <img src={"../../../images/" + productId + ".jpg"} alt={"image magazine " + productId} />
+        <img src={`../../../images/${productId}.jpg`} alt={`image magazine ${productId}`} />
       </div>
     </div>
   );

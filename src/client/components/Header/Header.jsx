@@ -5,7 +5,7 @@ import React from 'react';
 import { Row, Col, Button } from 'antd';
 import { NavLink } from 'react-router-dom';
 
-const Header = ({ openCart }) => (
+const Header = ({ openCart, listProduct }) => (
   <header>
     <Row type="flex" justify="space-between" className="container">
       <Col xs={24} sm={24} md={6} lg={4} xl={4} className="wrapper-logo">
@@ -24,6 +24,7 @@ const Header = ({ openCart }) => (
           <li className="wrapper-link-shoppping">
             <Button onClick={openCart}>
               <img src="../../../images/panier.png" alt="panier image" />
+              <span>{listProduct.length}</span>
             </Button>
           </li>
           <li>
