@@ -1,8 +1,17 @@
 @import './variables';
 
 .wrapper-breadcrumb {
-    border-bottom: 1px solid $blackBoxi;
+    position: relative;
     padding-top: 90px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        width: 90%;
+        height: 1px;
+        background: $blackBoxi;
+    }
 
     h2 {
         font-family: 'Nunito-Bold';

@@ -30,7 +30,7 @@ class Banner extends React.Component {
     return (
       <div className="wrapper-banner">
         <Row>
-          <Col className="wrapper-banner-content" xs={24} sm={24} md={8} lg={8} xl={8}>
+          <Col className="wrapper-banner-content" xs={24} sm={24} md={10} lg={10} xl={10}>
             <h2>Hello Charles,</h2>
             <p className="sous-titre">Que puis-je faire pour vous ?</p>
             <Row type="flex">

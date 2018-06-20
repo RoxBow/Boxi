@@ -58,7 +58,7 @@ class Categories extends React.Component {
     if (isLoading) return <Loader />;
 
     return (
-      <div className="container wrapper-composant-categories">
+      <div className="container wrapper-padding wrapper-composant-categories">
         <Title title="Sélectionnez les journaux que vous souhaitez recevoir :" />
         <Row gutter={96} type="flex" justify="space-between" className="wrapper-categories">
           {listCategory.map((category, i) => (

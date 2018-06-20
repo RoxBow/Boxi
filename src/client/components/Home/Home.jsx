@@ -13,7 +13,7 @@ const Home = () => (
   <TemplatePage>
     <Banner />
     <QuickActions />
-    <Row className="container" style={{ margin: 'auto' }}>
+    <Row className="container wrapper-padding" style={{ margin: 'auto' }}>
       <Col xs={24} sm={24} md={12} lg={12} xl={12}>
         <Budget />
       </Col>
