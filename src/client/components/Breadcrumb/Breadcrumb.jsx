@@ -7,7 +7,7 @@ const Breadcrumb = props => {
   const { typeService, categoryService } = props.match.params;
   
   return (
-    <div className="container wrapper-breadcrumb">
+    <div className="container wrapper-breadcrumb wrapper-padding">
       <h2>Hello Charles,</h2>
       <p>
         Vous voulez recevoir des {typeService}

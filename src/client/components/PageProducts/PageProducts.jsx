@@ -52,7 +52,7 @@ class PageProducts extends React.Component {
     return (
       <TemplatePage>
         <Breadcrumb />
-        <div className="container wrapper-composant-products">
+        <div className="container wrapper-composant-products wrapper-padding">
           <Title title="Sélectionnez les journaux que vous souhaitez recevoir :" />
           <Products products={products} />
           <Row type="flex" justify="space-between" className="wrapper-buttons-action">

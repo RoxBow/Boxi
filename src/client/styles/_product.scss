@@ -4,6 +4,12 @@
     position: relative;
     border-radius: 47px;
     margin-bottom: 70px;
+    width: 45%;
+    display: inline-block;
+
+    &:nth-child(even) {
+        float: right;
+    }
 
     .wrapper-product-top {
         display: flex;
@@ -24,6 +30,8 @@
     .wrapper-product-bottom {
         border-bottom-left-radius: 50px;
         border-bottom-right-radius: 50px;
+        height: 150px;
+        overflow: hidden;
 
         img {
             width: 100%;
