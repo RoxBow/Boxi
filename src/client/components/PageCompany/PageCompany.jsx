@@ -5,9 +5,9 @@ import { Row, Col, Button } from 'antd';
 import PageSubscribe from './PageSubscribe';
 import PageAdd from './PageAdd';
 import PageConfirmation from './PageConfirmation';
-import { Link } from 'react-router-dom';
+import { LOGIN } from '../../constants';
 
-const PageCompany = ({ stepEmployee, companyValid }) => (
+const PageCompany = ({ stepEmployee, companyValid, showPopin }) => (
   <Row className="wrapper-page-company">
     <Col xs={24} sm={24} md={24} lg={10} xl={10} className="wrapper-part-left">
       <img src="../../images/boxi-logo-white.svg" alt="logo Boxi" />
@@ -20,7 +20,7 @@ const PageCompany = ({ stepEmployee, companyValid }) => (
     <Col xs={24} sm={24} md={24} lg={14} xl={14} className="wrapper-part-right">
       <div className="wrapper-top-company">
         <p>Vous avez déjà un compte ?</p>
-        <Link to="#">Connectez-vous</Link>
+        <Button onClick={() => showPopin(LOGIN)}>Connectez-vous</Button>
       </div>
       {!stepEmployee && !companyValid && <PageSubscribe />}
       {stepEmployee && !companyValid && <PageAdd />}

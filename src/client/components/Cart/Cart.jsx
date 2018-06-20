@@ -4,7 +4,9 @@ import React from 'react';
 import { Button } from 'antd';
 import CartProduct from './CartProduct';
 import CartEmpty from './CartEmpty';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { PATH } from '../../constants';
+
 class Cart extends React.Component {
   constructor(props) {
     super(props);
@@ -46,12 +48,12 @@ class Cart extends React.Component {
           <div className="wrapper-cart-footer">
             <p className="cart-total">Total :</p>
             <p className="cart-price">{totalPrice ? totalPrice.toFixed(2) : 0}€</p>
-            {currentPath === '/cart/recap' ? (
+            {currentPath === PATH.RECAP ? (
               <Button onClick={this.payService} className="btn-action btn-primary">
                 Finaliser la commande
               </Button>
             ) : (
-              <Link to="/cart/recap">Valider</Link>
+              <Link to={PATH.RECAP}>Valider</Link>
             )}
           </div>
         </div>

@@ -11,7 +11,7 @@ const renderMembers = ({ fields }) => (
     </p>
     {fields.map((member, index) => (
       <div className="wrapper-input-fields" key={index}>
-        <h4>Member #{index + 1}</h4>
+        <h4>Employé #{index + 1}</h4>
 
         <Field name={`${member}.email`} type="text" component={InputText} label="Email" />
         <button type="button" title="Remove employe" onClick={() => fields.remove(index)}></button>

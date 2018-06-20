@@ -1,7 +1,8 @@
 import './styles/_reset.scss';
 import './styles/_general.scss';
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import FormSignup from './components/Form/FormSignup/FormSignupContainer';
 import FormLogin from './components/Form/FormLogin/FormLoginContainer';
 import Home from './components/Home/Home';
@@ -10,28 +11,44 @@ import PageCategories from './components/PageCategories/PageCategories';
 import PageRecap from './components/PageRecap/PageRecap';
 import PageProducts from './components/PageProducts/PageProducts';
 import PageCompany from './components/PageCompany/PageCompanyContainer';
+import PrivateRoute from './components/PrivateRoute/PrivateRouteContainer';
+import { PATH } from './constants';
+
+const { HOME, TYPESERVICE, CATEGORYSERVICE, RECAP } = PATH;
 
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
-  
+
   render() {
+    const { isLoading, popinIsOpen } = this.props;
+
     return (
       <Router>
-        <div>
-          <Route path="/" exact component={PageCompany} />
-          <Route path="/home" exact component={Home} />
-          <Route path="/cart/recap" exact component={PageRecap} />
-          <Route path="/activationAccount/:emailId" exact component={FormSignup} />
+        <div className={popinIsOpen ? 'lock' : ''}>
+          <Route path="/company" exact component={PageCompany} />
           <Route path="/login" exact component={FormLogin} />
-          <Route path="/service/:typeService/:categoryService" exact component={PageProducts} />
-          <Route path="/service/:typeService" exact component={PageCategories} />
+          <Route path="/activationAccount/:emailId" exact component={FormSignup} />
           <Popin />
+
+          {!isLoading && (
+            <Switch>
+              <PrivateRoute path={HOME} exact component={Home} />
+              <PrivateRoute path={TYPESERVICE} exact component={PageCategories} />
+              <PrivateRoute path={CATEGORYSERVICE} exact component={PageProducts} />
+              <PrivateRoute path={RECAP} exact component={PageRecap} />
+            </Switch>
+          )}
         </div>
       </Router>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => ({
+  isLoading: state.user.isLoading,
+  popinIsOpen: state.popin.open
+});
+
+export default connect(mapStateToProps)(App);

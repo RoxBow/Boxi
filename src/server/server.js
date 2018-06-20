@@ -215,10 +215,12 @@ app.post('/company/createEmployees', (req, res) => {
   const { emails, companyId } = req.body;
 
   Company.findOne({ _id: companyId }, (err, company) => {
-    if(err) return;
+    if (err) return;
 
     // get all emails sends
     emails.forEach(({ email }) => {
+      if (email.length === 0) return;
+
       // create user only with email to begin
       const emailId = generateId();
       const user = new User({ email, emailId });
@@ -237,8 +239,8 @@ app.post('/company/createEmployees', (req, res) => {
       });
     });
 
-    company.save( err => {
-      return res.send({ success: true })
+    company.save(err => {
+      return res.send({ success: true });
     });
   });
 });

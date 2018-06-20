@@ -32,6 +32,7 @@ class Categories extends React.Component {
         const { listCategory } = res.data;
 
         if (listCategory) {
+
           _this.setState({
             listCategory,
             isLoading: false
