@@ -11,7 +11,7 @@ class Breadcrumb extends React.Component {
 
   render() {
     return (
-      <div className="container wrapper-breadcrumb">
+      <div className="container wrapper-padding wrapper-breadcrumb">
         <h2>Hello Charles,</h2>
         {/* Au clic sur le texte ci-dessous, le panier s'ouvre */}
         <p>Vous voulez recevoir des journaux de la catégorie de <span>Sports</span></p>

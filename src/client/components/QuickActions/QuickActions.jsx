@@ -22,7 +22,7 @@ class QuickActions extends React.Component {
     if (typeof listService === 'undefined' || listService.length === 0) return <Loader />;
 
     return (
-      <div className="wrapper-quick-actions container">
+      <div className="wrapper-quick-actions container wrapper-padding">
         <Title title="On vous suggère :" />
         <Row type="flex" justify="space-between">
           {listService.map((service, i) => (
