@@ -12,7 +12,7 @@ class PageAdd extends React.Component {
   render() {
     return (
         <div className="wrapper-page-confirmation">
-            <img src="" alt="image confirmation" />
+            {/* <img src="../../images/check.png" alt="image confirmation" /> */}
             <h3>Très bien, David.</h3>
             <p>Les membres ajoutés recevront un mail d’invitation pour se connecter.</p>
         </div>

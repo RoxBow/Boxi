@@ -21,7 +21,7 @@ class PageCompany extends React.Component {
             <img src="../../images/boxi-logo-white.svg" alt="logo Boxi" />
             <div className="wrapper-header">
                 <h2>BOXI</h2>
-                <img src="../../images/boxi-logo-white.svg" alt="logo Boxi" />
+                <img src="../../images/illu-boxi-fleurs.svg" alt="logo Boxi" />
                 <p>La conciergerie en boîte</p>
             </div>
         </Col>
@@ -30,7 +30,7 @@ class PageCompany extends React.Component {
                 <p>Vous avez déjà un compte ?</p>
                 <Link to="#">Connectez-vous</Link>
             </div>
-            <PageSubscribe />
+            <PageConfirmation />
         </Col>
       </Row>
     );
