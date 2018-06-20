@@ -20,17 +20,19 @@
 
             & ~ span {
                 display: block;
-                top: 0;
+                top: -7px;
                 color: $blueBoxi;
                 font-size: 10px;
+                z-index: 1;
             }
         }
     } // input
 
     span.label_up {
-        top: -3px;
+        top: -7px;
         color: $blueBoxi;
         font-size: 10px;
+        z-index: 1;
     }
 
     input ~ span {
@@ -40,5 +42,6 @@
         font-size: 18px;
         transition: top .3s ease;
         font-family: 'Nunito-Regular';
+        z-index: -1;
     } // span
 } // wrapper-input-text

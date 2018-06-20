@@ -84,7 +84,7 @@
                 padding: 12px 38px;
             } // a
 
-        } // wrapper-top-susbscribe
+        } // wrapper-top-company
 
         .wrapper-center-susbscribe {
             display: flex;
@@ -92,6 +92,7 @@
             align-items: center;
 
             .wrapper-input-text {
+                display: block;
                 margin-bottom: 40px;
 
                 &:last-of-type {
@@ -107,7 +108,7 @@
                 width: 415px;
             } // text-conditions
 
-            a {
+            button {
                 width: 170px;
                 height: 55px;
                 border-radius: 39px;
@@ -117,6 +118,8 @@
                 background-color: $blueBoxi;
                 color: #ffffff;
                 padding: 12px 38px;
+                margin: auto;
+                display: block;
             } // a
         } // wrapper-center-susbscribe
 
@@ -138,35 +141,19 @@
             }
 
             p {
+                position: relative;
                 font-size: 20px;
                 color: $colorText;
                 font-family: 'Raleway-Regular';
                 width: 415px;
-            }
 
-            .wrapper-input-fields {
-                margin-top: 40px;
-                margin-bottom: 27px;
-
-                &:last-of-type {
-                    .btn-add {
-                        display: inline-block;
-                    } // btn-add
-                }
-
-                input, button {
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-
-                button {
-                    visibility: hidden;
+                .btn-add {
                     position: relative;
                     width: 45px;
                     height: 45px;
                     background-color: $blueBoxi;
                     border-radius: 50px;
-                    margin-left: 18px;
+                    padding: 0;
 
                     &::before {
                         content: '';
@@ -191,13 +178,61 @@
                         background-color: #ffffff;
                         border-radius: 30px;
                     }
+                } // btn-add
+            }
+
+            .wrapper-input-fields {
+                margin-top: 40px;
+                margin-bottom: 27px;
+
+                &:last-of-type {
+                    .btn-add {
+                        display: inline-block;
+                    } // btn-add
+                }
+
+                input, button {
+                    display: inline-block;
+                    vertical-align: middle;
+                }
+
+                button {
+                    position: relative;
+                    display: inline-block;
+                    width: 45px;
+                    height: 45px;
+                    background-color: $pinkBoxi;
+                    border-color: $pinkBoxi;
+                    border-radius: 50px;
+                    vertical-align: middle;
+                    padding: 0;
+                    bottom: auto;
+                    top: auto;
+                    left: auto;
+                    transform: inherit;
+                    margin-top: 0;
+                    margin-left: 25px;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 23px;
+                        height: 3px;
+                        background-color: #ffffff;
+                        border-radius: 30px;
+                    }
                 } // button
             } // wrapper-input-fields
             
 
-            a {
+            button {
                 position: absolute;
                 bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
                 width: 170px;
                 height: 55px;
                 border-radius: 39px;
@@ -240,6 +275,19 @@
                 color: $colorText;
                 font-family: 'Raleway-Regular';
                 width: 415px;
+            }
+
+            a {
+                width: 170px;
+                height: 55px;
+                border-radius: 39px;
+                border: 2px solid blue;
+                font-family: 'Nunito-Bold';
+                font-size: 20px;
+                background-color: blue;
+                color: #ffffff;
+                padding: 12px 38px;
+                margin-top: 20px;
             }
         } // wrapper-page-confirmation
     } // wrapper-part-right

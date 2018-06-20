@@ -40,9 +40,9 @@ class FormCompany extends React.Component {
       <form onSubmit={this.registerCompany}>
         <Field name="name" type="text" component={InputText} label="Nom de votre entreprise" />
         <Field name="director" type="text" component={InputText} label="Votre nom" />
-        <Field name="email" type="email" component={InputText} label="Votre addresse e-mail" />
+        <Field name="email" type="email" component={InputText} label="Votre adresse e-mail" />
         <Field name="password" type="password" component={InputText} label="Votre mot de passe" />
-
+        <p>En cliquant sur « Continuer », vous acceptez nos conditions d’utilisation.</p>
         <button type="submit" disabled={submitting}>
           Continuer
         </button>
