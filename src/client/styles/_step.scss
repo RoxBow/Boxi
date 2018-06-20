@@ -1,89 +1,94 @@
 @import './variables';
 
-.wrapper-popin {
+.popin {
     .wrapper-popin-top {
-        padding: 82px 38px 47px 38px;
-
-        .title-popin {
-            font-size: 21px;
-            color: $colorText;
-            font-family: 'Raleway-SemiBold';
-            line-height: 1;
-        } // title-popin
-    
-        .description-popin {
-            font-size: 21px;
-            font-family: 'Raleway-Regular';
-        } // description-popin
-    
-        p {
-            font-size: 21px;
-            font-family: 'Raleway-Regular';
-            span {
-                font-family: 'Raleway-Bold';
-            }
-        }
-    
-        .wrapper-btns {
-            display: flex;
-            justify-content: center;
-            margin-top: 30px;
-    
-            a {
-                padding: 10px;
-                text-align: center;
-                font-family: 'Nunito-Bold';
-                font-size: 20px;
-    
-                &.btn-action {
-                    width: 183px;
-                    height: 55px;
-                    border-radius: 39px;
-                    border: 2px solid $blueBoxi;
-                    font-family: 'Nunito-Bold';
-                    font-size: 20px;
-                } // btn-action
-    
-                &.btn-primary {
-                    background-color: $blueBoxi;
-                    color: #ffffff;
-                    float: right;
-                } // btn-primary
-
-                &.btn-step2 {
-                    width: 240px;
-                } // btn-step2
-            } // a
-    
-            button {
-                &.btn-action {
-                    width: 183px;
-                    height: 55px;
-                    border-radius: 39px;
-                    border: 2px solid $blueBoxi;
-                    font-family: 'Nunito-Bold';
-                    font-size: 20px;
-                } // btn-action
-    
-                &.btn-back-to-products {
-                    width: 250px;
-                } // btn-back-to-products
-        
-                &.btn-primary {
-                    background-color: $blueBoxi;
-                    color: #ffffff;
-                    float: right;
+        .wrapper-popin {
+            padding: 82px 38px 47px 38px;
+            .title-popin {
+                    font-size: 21px;
+                    color: $colorText;
+                    font-family: 'Raleway-SemiBold';
+                    line-height: 1;
+                } // title-popin
+            
+                .description-popin {
+                    font-size: 21px;
+                    font-family: 'Raleway-Regular';
+                } // description-popin
+            
+                p {
+                    font-size: 21px;
+                    font-family: 'Raleway-Regular';
+                    span {
+                        font-family: 'Raleway-Bold';
+                    }
                 }
-        
-                &.btn-secondary {
-                    background-color: transparent;
-                    color: $blueBoxi;
-                    margin-right: 54px;
-                }
-            } // button
-        } // wrapper-btns
-      } // wrapper-popin-top
-      
+            
+                .wrapper-btns {
+                    display: flex;
+                    justify-content: center;
+                    margin-top: 30px;
+            
+                    a {
+                        padding: 10px;
+                        text-align: center;
+                        font-family: 'Nunito-Bold';
+                        font-size: 20px;
+            
+                        &.btn-action {
+                            width: 183px;
+                            height: 55px;
+                            border-radius: 39px;
+                            border: 2px solid $blueBoxi;
+                            font-family: 'Nunito-Bold';
+                            font-size: 20px;
+                        } // btn-action
+            
+                        &.btn-primary {
+                            background-color: $blueBoxi;
+                            color: #ffffff;
+                            float: right;
+                        } // btn-primary
+
+                        &.btn-step2 {
+                            width: 240px;
+                        } // btn-step2
+
+                        &.btn-finish {
+                            width: 250px;
+                        } // btn-back-to-products
+                    } // a
+            
+                    button {
+                        &.btn-action {
+                            width: 183px;
+                            height: 55px;
+                            border-radius: 39px;
+                            border: 2px solid $blueBoxi;
+                            font-family: 'Nunito-Bold';
+                            font-size: 20px;
+                        } // btn-action
+            
+                        &.btn-back-to-products {
+                            width: 250px;
+                        } // btn-back-to-products
+                
+                        &.btn-primary {
+                            background-color: $blueBoxi;
+                            color: #ffffff;
+                            float: right;
+                        }
+                
+                        &.btn-secondary {
+                            background-color: transparent;
+                            color: $blueBoxi;
+                            margin-right: 54px;
+                        }
+                    } // button
+                } // wrapper-btns
+            } // wrapper-popin-top
+        } // wrapper-popin
+
       .wrapper-popin-bottom {
           max-height: 430px;
           overflow: hidden;
@@ -107,4 +112,4 @@
             }
         } // wrapper-popin-top
       } // popin-step2
-} // wrapper-popin
+} // popin

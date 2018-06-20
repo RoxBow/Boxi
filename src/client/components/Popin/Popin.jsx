@@ -22,9 +22,6 @@ const Popin = ({ isOpen, hidePopin, popinType }) => (
         <span className="close" onClick={hidePopin}></span>
         {renderContent(popinType)}
       </div>
-      <div className="wrapper-popin-bottom">
-        <img src="../../../images/image-product.png" alt="image magazine" />
-      </div>
     </div>
   </div>
 );
