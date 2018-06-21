@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'antd';
 import { LOGIN } from '../../constants';
+import { showPopin } from '../../redux/Popin/action';
 
 const PageConfirmation = ({ company, showPopin }) => (
   <div className="wrapper-page-confirmation">

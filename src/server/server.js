@@ -189,14 +189,19 @@ app.get('/user/checkAuthentication', (req, res) => {
 });
 
 app.get('/user/getService', (req, res) => {
-  if (req.user) {
-    User.findOne({ _id: req.user._id })
-      .populate('service')
-      .exec((err, user) => {
-        if (err) throw err;
-        res.status(200).send({ services: user.service });
-      });
-  }
+  User.findOne({ _id: req.user._id })
+    .populate('service')
+    .exec((err, user) => {
+      if (err) throw err;
+      res.status(200).send({ services: user.service });
+    });
+});
+
+app.get('/user/getBudget', (req, res) => {
+  User.findOne({ _id: req.user._id }, (err, user) => {
+    if (err) return err;
+    res.send({ budget: user.budget });
+  });
 });
 
 /* ### COMPANY ### */
@@ -321,12 +326,15 @@ app.post('/cart/paymentService', (req, res) => {
 
   User.findOne({ _id: req.user._id }, (err, user) => {
     user.service = req.session.cart.listProduct;
+    user.budget = user.budget + req.session.cart.totalPrice;
+
     user.save(err => {
       if (err) throw err;
 
       req.session.cart.totalPrice = 0;
       req.session.cart.listProduct = [];
       req.session.save();
+      return res.send({ budget: user.budget });
     });
   });
 });

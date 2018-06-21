@@ -8,6 +8,7 @@ export const LOGIN = 'LOGIN';
 export const LOGOUT = 'LOGOUT';
 export const SET_AUTHENTICATION = 'SET_AUTHENTICATION';
 export const SET_ERROR = 'SET_ERROR';
+export const UPDATE_BUDGET = 'UPDATE_BUDGET';
 
 export const requestSignUp = (email, password) => {
   return dispatch => {
@@ -52,18 +53,14 @@ export const requestLogin = e => {
   };
 };
 
-export const setMessageInfo = messageInfo => {
-  return {
-    type: SET_MESSAGE_INFO,
-    messageInfo
-  };
-};
+export const setMessageInfo = messageInfo => ({
+  type: SET_MESSAGE_INFO,
+  messageInfo
+});
 
-export const login = e => {
-  return {
-    type: LOGIN
-  };
-};
+export const login = e => ({
+  type: LOGIN
+});
 
 export const setAuthentication = isAuthenticated => {
   return {
@@ -82,12 +79,10 @@ export const logout = () => {
   };
 };
 
-export const setError = errorMessage => {
-  return {
-    type: SET_ERROR,
-    errorMessage
-  };
-};
+export const setError = errorMessage => ({
+  type: SET_ERROR,
+  errorMessage
+});
 
 export const buyProduct = (popinType, selectedProduct) => {
   return dispatch => {
@@ -95,3 +90,8 @@ export const buyProduct = (popinType, selectedProduct) => {
     dispatch(showPopin(popinType));
   };
 };
+
+export const updateBudget = budget => ({
+  type: UPDATE_BUDGET,
+  budget
+});

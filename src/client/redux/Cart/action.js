@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { updateBudget } from '../User/action';
 
 export const UPDATE_CART = 'UPDATE_CART';
 export const SET_ERROR = 'SET_ERROR';
@@ -78,6 +79,7 @@ export const payService = () => {
           dispatch(setError(res.data.error));
         } else {
           dispatch(updateCart([], 0));
+          dispatch(updateBudget(res.data.budget));
         }
       })
       .catch(err => {

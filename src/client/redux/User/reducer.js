@@ -1,8 +1,16 @@
-import { SET_MESSAGE_INFO, LOGIN, SET_AUTHENTICATION, LOGOUT, SET_ERROR } from './action';
+import {
+  SET_MESSAGE_INFO,
+  LOGIN,
+  SET_AUTHENTICATION,
+  LOGOUT,
+  SET_ERROR,
+  UPDATE_BUDGET
+} from './action';
 
 const initialState = {
   isAuthenticated: false,
   isLoading: true,
+  budget: 0,
   error: ''
 };
 
@@ -35,6 +43,11 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         error: action.errorMessage
+      };
+    case UPDATE_BUDGET:
+      return {
+        ...state,
+        budget: action.budget
       };
     default:
       return state;

@@ -4,7 +4,7 @@ import { Row, Col } from 'antd';
 import Banner from '../Banner/BannerContainer';
 import QuickActions from '../QuickActions/QuickActionsContainer';
 import TimeLine from '../TimeLine/TimeLine';
-import Budget from '../Budget/Budget';
+import Budget from '../Budget/BudgetContainer';
 import TemplatePage from '../TemplatePage/TemplatePage';
 
 const Home = () => (

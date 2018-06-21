@@ -10,8 +10,6 @@ export const showPopin = popinType => {
   };
 };
 
-export const hidePopin = () => {
-  return {
-    type: HIDE_POPIN
-  };
-};
+export const hidePopin = () => ({
+  type: HIDE_POPIN
+});

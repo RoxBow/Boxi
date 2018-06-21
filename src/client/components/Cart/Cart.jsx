@@ -41,7 +41,7 @@ class Cart extends React.Component {
             <p className="cart-total">Total :</p>
             <p className="cart-price">{totalPrice ? totalPrice.toFixed(2) : 0}€</p>
             {currentPath === PATH.LIVRAISON ? (
-              <Link to={PATH.RECAP} onClick={payService} className="btn-action btn-primary btn-finalise-order">
+              <Link to={PATH.RECAP} onClick={ () => { payService(); closeCart(); } } className="btn-action btn-primary btn-finalise-order">
                 Finaliser la commande
               </Link>
             ) : (
