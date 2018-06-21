@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import Title from '../Title/Title';
 import { PATH } from '../../constants';
 
-const MAX_BUDGET = 10;
+const MAX_BUDGET = 50;
 
 class Budget extends React.Component {
   constructor(props) {

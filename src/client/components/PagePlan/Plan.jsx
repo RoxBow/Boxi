@@ -12,7 +12,7 @@ const Plan = () => (
     </div>
     <div className="wrapper-hours">
       <p>Horaire</p>
-      <Select style={{ width: 224 }}>
+      <Select style={{ width: 224 }} defaultValue="9:00 - 12:00">
         <Option value="9:00 - 12:00">9:00 - 12:00</Option>
         <Option value="12:00 - 15:00">12:00 - 15:00</Option>
         <Option value="15:00 - 18:00">15:00 - 18:00</Option>

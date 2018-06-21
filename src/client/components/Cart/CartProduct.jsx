@@ -4,7 +4,7 @@ import { Button } from 'antd';
 const CardProduct = (props) => (
   <div className="wrapper-cart-product">
     <div className="wrapper-number-product">
-      <p>1</p>
+      <p>{props.ite}</p>
     </div>
     <div className="wrapper-product">
       <div className="wrapper-product-top">

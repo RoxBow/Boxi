@@ -2,7 +2,7 @@ import 'antd/dist/antd.css';
 import '../../styles/_header.scss';
 import '../../styles/_variables.scss';
 import React from 'react';
-import { Row, Col, Button } from 'antd';
+import { Row, Col, Button, Badge } from 'antd';
 import { NavLink } from 'react-router-dom';
 import { PATH } from '../../constants';
 
@@ -25,7 +25,9 @@ const Header = ({ openCart, listProduct }) => (
           <li className="wrapper-link-shoppping">
             <Button onClick={openCart}>
               <img src="../../../images/panier.png" alt="panier image" />
-              <span>{listProduct && listProduct.length > 0 && listProduct.length}</span>
+              <Badge count={listProduct.length}>
+                {/* <span>{listProduct && listProduct.length > 0 && listProduct.length}</span> */}
+              </Badge>
             </Button>
           </li>
           <li>

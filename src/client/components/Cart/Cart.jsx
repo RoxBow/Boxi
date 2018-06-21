@@ -20,7 +20,7 @@ class Cart extends React.Component {
       <div className="wrapper-cart">
         <div className="wrapper-cart-content">
           <span onClick={closeCart} className="close" />
-          {listProduct ? (
+          {listProduct && listProduct.length > 0 ? (
             <div>
               <div className="wrapper-cart-header">
                 <h2>Voici votre sélection :</h2>
@@ -29,7 +29,7 @@ class Cart extends React.Component {
 
               <div className="wrapper-cart-body">
                 {listProduct.map((product, i) => (
-                  <CartProduct key={i} {...product} removeProduct={removeProduct} />
+                  <CartProduct key={i} {...product} ite={i + 1} removeProduct={removeProduct} />
                 ))}
               </div>
             </div>

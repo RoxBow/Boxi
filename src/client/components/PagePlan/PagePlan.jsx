@@ -12,16 +12,18 @@ const PagePlan = props => (
   <div className="wrapper-page-plan">
     <TemplatePage>
       <Breadcrumb />
-      <p className="text-summary">
-        Vous avez séléctionné 2 mensuels et 1 quotidien.<br />
-        Vous recevrez ces journaux en fontion de leur publication
-      </p>
-      <Title title="Quand souhaitez-vous recevoir ceci ?" />
-      <Plan />
-      <div className="wrapper-btns">
-        <Button className="btn-action btn-secondary" onClick={() => props.history.goBack()}>
-          Retour
-        </Button>
+      <div className="container wrapper-padding">
+        <p className="text-summary">
+          Vous avez séléctionné 2 mensuels et 1 quotidien.<br />
+          Vous recevrez ces journaux en fontion de leur publication
+        </p>
+        <Title title="Quand souhaitez-vous recevoir ceci ?" />
+        <Plan />
+        <div className="wrapper-btns">
+          <Button className="btn-action btn-secondary" onClick={() => props.history.goBack()}>
+            Retour
+          </Button>
+        </div>
       </div>
     </TemplatePage>
   </div>

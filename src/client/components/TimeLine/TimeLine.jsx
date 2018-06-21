@@ -42,10 +42,10 @@ class TimeLine extends React.Component {
         <Title title="Votre activité" />
         <Timeline>
           {services &&
-            services.map(({ title, price }, i) => (
+            services.map(({ title, price, type }, i) => (
               <Timeline.Item key={i}>
                 <p>Vous venez de commander :</p>
-                <img src="../../images/icon-roses.png" alt="roses" />
+                <img src={"../../images/icon-" + type + "-small.png"} alt={ type } />
                 <div className="wrapper-content">
                   <p className="type-order">{title}</p>
                   <p className="price-order">{price.toFixed(2)}€</p>
