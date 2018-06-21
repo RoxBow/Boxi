@@ -325,7 +325,7 @@ app.post('/cart/paymentService', (req, res) => {
   }
 
   User.findOne({ _id: req.user._id }, (err, user) => {
-    user.service = req.session.cart.listProduct;
+    user.service = user.service.concat(req.session.cart.listProduct);
     user.budget = user.budget + req.session.cart.totalPrice;
 
     user.save(err => {
