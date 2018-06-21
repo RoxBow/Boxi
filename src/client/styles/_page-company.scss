@@ -3,6 +3,36 @@
 .wrapper-page-company {
     height: 100%;
 
+    & + .overlay {
+        .popin {
+            .wrapper-popin-top {
+                padding: 80px 50px 50px 50px;
+                width: 520px;
+
+                form {
+                    .wrapper-input-text {
+                        margin-bottom: 30px;
+                    } // wrapper-input-text
+
+                    button {
+                        display: block;
+                        margin: auto;
+                        width: 198px;
+                        height: 55px;
+                        border-radius: 39px;
+                        border: 2px solid $blueBoxi;
+                        font-family: 'Nunito-Bold';
+                        font-size: 20px;
+                        background-color: $blueBoxi;
+                        color: #ffffff;;
+                        padding: 12px 22px;
+                        margin-top: 30px;
+                    }
+                } // form
+            } // wrapper-popin-top
+        } // popin
+    }
+
     .wrapper-part-left {
         position: relative;
         display: flex;
@@ -70,9 +100,10 @@
                 font-family: 'Raleway-SemiBold';
                 color: $colorText;
                 display: inline-block;
+                margin-bottom: 30px;
             }
 
-            a {
+            button {
                 width: 198px;
                 height: 55px;
                 border-radius: 39px;
@@ -81,7 +112,7 @@
                 font-size: 20px;
                 background-color: transparent;
                 color: $blueBoxi;
-                padding: 12px 38px;
+                padding: 12px 22px;
             } // a
 
         } // wrapper-top-company

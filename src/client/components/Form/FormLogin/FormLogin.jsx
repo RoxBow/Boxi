@@ -12,7 +12,7 @@ const FormLogin = ({ login, submitting, isAuthenticated, hidePopin }) => (
     <Field name="email" type="email" component={InputText} label="Email" />
     <Field name="password" type="password" component={InputText} label="Password" />
     <button type="submit" disabled={submitting}>
-      Connecter
+      Se connecter
     </button>
     {isAuthenticated && redirectToHome(hidePopin)}
   </form>
