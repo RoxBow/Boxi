@@ -25,9 +25,7 @@ const Header = ({ openCart, listProduct }) => (
           <li className="wrapper-link-shoppping">
             <Button onClick={openCart}>
               <img src="../../../images/panier.png" alt="panier image" />
-              <Badge count={listProduct.length}>
-                {/* <span>{listProduct && listProduct.length > 0 && listProduct.length}</span> */}
-              </Badge>
+              {listProduct && listProduct.length > 0 && <Badge count={listProduct.length} />}
             </Button>
           </li>
           <li>

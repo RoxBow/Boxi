@@ -198,10 +198,12 @@ app.get('/user/getService', (req, res) => {
 });
 
 app.get('/user/getBudget', (req, res) => {
-  User.findOne({ _id: req.user._id }, (err, user) => {
-    if (err) return err;
-    res.send({ budget: user.budget });
-  });
+  if(req.user){
+    User.findOne({ _id: req.user._id }, (err, user) => {
+      if (err) return err;
+      res.send({ budget: user.budget });
+    });
+  }
 });
 
 /* ### COMPANY ### */
