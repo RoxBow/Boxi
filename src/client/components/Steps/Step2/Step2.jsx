@@ -3,7 +3,6 @@ import '../../../styles/_step.scss';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { PATH } from '../../../constants';
-import { openCart } from '../../../redux/Cart/action';
 
 const Step2 = ({ selectedProduct, hidePopin, addProduct, openCart }) => {
   const { title, price, productId } = selectedProduct;
@@ -25,7 +24,10 @@ const Step2 = ({ selectedProduct, hidePopin, addProduct, openCart }) => {
         </p>
         <div className="wrapper-btns">
           <Button
-            onClick={() => hidePopin()}
+            onClick={() => {
+              addProduct(selectedProduct);
+              hidePopin();
+            }}
             className="btn-action btn-secondary btn-back-to-products"
           >
             Continuer mes achats
