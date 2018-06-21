@@ -2,13 +2,11 @@ import 'antd/dist/antd.css';
 import '../../styles/_page-plan.scss';
 import { Button } from 'antd';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
 import React from 'react';
 import Title from '../Title/Title';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import Plan from './Plan';
 import TemplatePage from '../TemplatePage/TemplatePage';
-import { PATH } from '../../constants';
 
 const PagePlan = props => (
   <div className="wrapper-page-plan">
@@ -21,12 +19,9 @@ const PagePlan = props => (
       <Title title="Quand souhaitez-vous recevoir ceci ?" />
       <Plan />
       <div className="wrapper-btns">
-        <Button className="btn-action btn-secondary" onClick={props.history.goBack()}>
+        <Button className="btn-action btn-secondary" onClick={() => props.history.goBack()}>
           Retour
         </Button>
-        <Link to={PATH.RECAP} className="btn-action btn-primary">
-          Valider
-        </Link>
       </div>
     </TemplatePage>
   </div>

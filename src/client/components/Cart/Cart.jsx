@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import CartProduct from './CartProduct';
 import CartEmpty from './CartEmpty';
 import { PATH } from '../../constants';
+import { withRouter } from 'react-router';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -53,4 +54,4 @@ class Cart extends React.Component {
   }
 }
 
-export default Cart;
+export default withRouter(Cart);

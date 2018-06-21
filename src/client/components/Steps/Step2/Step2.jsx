@@ -3,8 +3,9 @@ import '../../../styles/_step.scss';
 import { Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { PATH } from '../../../constants';
+import { openCart } from '../../../redux/Cart/action';
 
-const Step2 = ({ selectedProduct, hidePopin, addProduct }) => {
+const Step2 = ({ selectedProduct, hidePopin, addProduct, openCart }) => {
   const { title, price, productId } = selectedProduct;
 
   return (
@@ -32,8 +33,9 @@ const Step2 = ({ selectedProduct, hidePopin, addProduct }) => {
           <Link
             to={PATH.LIVRAISON}
             onClick={() => {
-              hidePopin();
               addProduct(selectedProduct);
+              hidePopin();
+              openCart();
             }}
             className="btn-action btn-primary btn-finish"
           >
@@ -42,7 +44,7 @@ const Step2 = ({ selectedProduct, hidePopin, addProduct }) => {
         </div>
       </div>
       <div className="wrapper-popin-bottom">
-        <img src={"../../../images/" + productId + ".jpg"} alt={"image magazine " + productId} />
+        <img src={`../../../images/${productId}.jpg`} alt={`image magazine ${productId}`} />
       </div>
     </div>
   );

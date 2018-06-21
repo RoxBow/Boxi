@@ -3,12 +3,12 @@ import '../../styles/_page-categories.scss';
 import React from 'react';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import TemplatePage from '../TemplatePage/TemplatePage';
-import CartConfirmationPage from '../Cart/CartConfirmationPage';
+import CartConfirmation from '../Cart/CartConfirmation';
 
 const PageRecap = () => (
   <TemplatePage>
     <Breadcrumb />
-    <CartConfirmationPage />
+    <CartConfirmation />
   </TemplatePage>
 );
 
