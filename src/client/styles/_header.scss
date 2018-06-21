@@ -48,6 +48,10 @@ header {
                         .ant-badge {
                             top: -8px;
                             left: -8px;
+
+                            .ant-badge-count {
+                                background-color: $pinkBoxi;
+                            } // ant-badge-count
                         }
                     }
                 } // wrapper-link-shoppping

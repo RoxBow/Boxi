@@ -28,7 +28,7 @@ const Step2 = ({ selectedProduct, hidePopin, addProduct, openCart }) => {
             onClick={() => hidePopin()}
             className="btn-action btn-secondary btn-back-to-products"
           >
-            Retourner aux produits
+            Continuer mes achats
           </Button>
           <Link
             to={PATH.LIVRAISON}

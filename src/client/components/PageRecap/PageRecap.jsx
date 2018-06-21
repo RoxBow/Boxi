@@ -7,7 +7,6 @@ import CartConfirmation from '../Cart/CartConfirmation';
 
 const PageRecap = () => (
   <TemplatePage>
-    <Breadcrumb />
     <CartConfirmation />
   </TemplatePage>
 );
