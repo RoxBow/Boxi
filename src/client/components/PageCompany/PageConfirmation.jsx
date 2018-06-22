@@ -10,7 +10,6 @@ const PageConfirmation = ({ company, showPopin }) => (
   <div className="wrapper-page-confirmation">
     <h3>Très bien, {company.director}.</h3>
     <p>Les membres ajoutés recevront un mail d’invitation pour se connecter.</p>
-    <Button onClick={() => showPopin(LOGIN)}>Continuer et me connecter</Button>
   </div>
 );
 

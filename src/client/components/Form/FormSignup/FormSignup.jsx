@@ -35,8 +35,6 @@ class FormSignUp extends React.Component {
     const { signUp, submitting, email } = this.props;
 
     return (
-      
-
       <Row className="wrapper-page-sign-up" style={{height:"100%"}}>
         <Col xs={24} sm={24} md={24} lg={10} xl={10} className="wrapper-part-left">
           <img src="../../images/boxi-logo-white.svg" alt="logo Boxi" />
